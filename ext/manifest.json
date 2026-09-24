@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "Caption Tap",
+  "version": "0.1.0",
+  "description": "Captures CBS.com caption cues from the player DOM and posts them to a local service.",
+  "permissions": ["storage"],
+  "host_permissions": ["http://127.0.0.1:8000/*"],
+  "content_scripts": [
+    {
+      "matches": ["https://www.cbs.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ]
+}
