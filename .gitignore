@@ -144,3 +144,5 @@ vite.config.ts.timestamp-*
 
 # Local stuff
 contexts/
+replay-*/
+cues/
