@@ -1,0 +1,2077 @@
+{
+  "host": "Jeff Probst",
+  "cast": [
+    "David Jelinsky",
+    "Jess Chong",
+    "Randen Montalvo",
+    "Bhanu Gopal",
+    "Jemila Hussain-Adams",
+    "Moriah Gaynor",
+    "Tim Spicer",
+    "Sodasia Thompson",
+    "Tevin Davis",
+    "Hunter McKnight",
+    "Tiffany Nicole Ervin",
+    "Venus Vafa",
+    "Quintavius Burdette",
+    "Maria Shrime Gonzalez",
+    "Liz Wilcox",
+    "Ben Katzman",
+    "Charlie Davis",
+    "Kenzie Petty"
+  ],
+  "tribes": [
+    "Nami",
+    "Siga",
+    "Yanu",
+    "Nuinui"
+  ],
+  "titles": [
+    {
+      "num": 1,
+      "title": "This is Where the Legends Are Made"
+    },
+    {
+      "num": 2,
+      "title": "Scorpio Energy"
+    },
+    {
+      "num": 3,
+      "title": "Wackadoodles Win"
+    },
+    {
+      "num": 4,
+      "title": "Don't Touch the Oven"
+    },
+    {
+      "num": 5,
+      "title": "Tiki Man"
+    },
+    {
+      "num": 6,
+      "title": "Cancel Christmas"
+    },
+    {
+      "num": 7,
+      "title": "Episode Several"
+    },
+    {
+      "num": 8,
+      "title": "Hide 'N Seek"
+    },
+    {
+      "num": 9,
+      "title": "Spicy Jeff"
+    },
+    {
+      "num": 10,
+      "title": "Run the Red Light"
+    },
+    {
+      "num": 11,
+      "title": "My Messy, Sweet Little Friend"
+    },
+    {
+      "num": 12,
+      "title": "Mamma Bear"
+    },
+    {
+      "num": 13,
+      "title": "Friends Going to War"
+    }
+  ],
+  "canaries": [
+    "Ozzy",
+    "Parvati",
+    "Wendell"
+  ],
+  "seasonsData": [
+    {
+      "season": {
+        "seasonId": 10,
+        "name": "Survivor 46",
+        "premiereDate": "2024-02-29T01:00:00.000Z",
+        "finaleDate": null,
+        "created_at": "2025-09-01T03:24:40.168Z",
+        "updated_at": "2026-02-25T20:30:59.257Z"
+      },
+      "castaways": [
+        {
+          "castawayId": 156,
+          "fullName": "Ben Katzman",
+          "shortName": "Ben",
+          "age": 31,
+          "hometown": "Miami, FL",
+          "residence": "Miami, FL",
+          "occupation": "Musician",
+          "imageUrl": "https://static.wikia.nocookie.net/survivor/images/3/34/S46_ben_t.png/revision/latest/scale-to-width-down/70?cb=20240206001624",
+          "seasonId": 10,
+          "previouslyOn": [],
+          "created_at": "2025-09-01T03:24:40.826Z",
+          "updated_at": "2026-02-25T20:31:13.480Z",
+          "tribe": {
+            "name": "Siga",
+            "color": "#8eda77"
+          },
+          "eliminatedEpisode": null
+        },
+        {
+          "castawayId": 162,
+          "fullName": "Bhanu Gopal",
+          "shortName": "Bhanu",
+          "age": 40,
+          "hometown": "Visakhapatnam, India",
+          "residence": "Acton, MA",
+          "occupation": "IT Quality Analyst",
+          "imageUrl": "https://static.wikia.nocookie.net/survivor/images/4/4d/S46_bhanu_t.png/revision/latest/scale-to-width-down/70?cb=20240206001641",
+          "seasonId": 10,
+          "previouslyOn": [],
+          "created_at": "2025-09-01T03:24:40.826Z",
+          "updated_at": "2026-02-25T20:31:04.385Z",
+          "tribe": {
+            "name": "Yanu",
+            "color": "#bf5dc2"
+          },
+          "eliminatedEpisode": 4
+        },
+        {
+          "castawayId": 157,
+          "fullName": "Charlie Davis",
+          "shortName": "Charlie",
+          "age": 25,
+          "hometown": "Manchester-by-the-Sea, MA",
+          "residence": "Boston, MA",
+          "occupation": "Law Student",
+          "imageUrl": "https://static.wikia.nocookie.net/survivor/images/5/5a/S46_charlie_t.png/revision/latest/scale-to-width-down/70?cb=20240206001704",
+          "seasonId": 10,
+          "previouslyOn": [],
+          "created_at": "2025-09-01T03:24:40.826Z",
+          "updated_at": "2026-02-25T20:31:14.105Z",
+          "tribe": {
+            "name": "Siga",
+            "color": "#8eda77"
+          },
+          "eliminatedEpisode": null
+        },
+        {
+          "castawayId": 163,
+          "fullName": "David Jelinsky",
+          "shortName": "David",
+          "age": 21,
+          "hometown": "Las Vegas, NV",
+          "residence": "Las Vegas, NV",
+          "occupation": "Slot Machine Salesman",
+          "imageUrl": "https://static.wikia.nocookie.net/survivor/images/1/11/S46_jelinsky_t.png/revision/latest/scale-to-width-down/70?cb=20240206001742",
+          "seasonId": 10,
+          "previouslyOn": [],
+          "created_at": "2025-09-01T03:24:40.826Z",
+          "updated_at": "2026-02-25T20:31:02.237Z",
+          "tribe": {
+            "name": "Yanu",
+            "color": "#bf5dc2"
+          },
+          "eliminatedEpisode": 1
+        },
+        {
+          "castawayId": 150,
+          "fullName": "Hunter McKnight",
+          "shortName": "Hunter",
+          "age": 27,
+          "hometown": "French Camp, MS",
+          "residence": "French Camp, MS",
+          "occupation": "Science Teacher",
+          "imageUrl": "https://static.wikia.nocookie.net/survivor/images/9/90/S46_hunter_t.png/revision/latest/scale-to-width-down/70?cb=20240206001725",
+          "seasonId": 10,
+          "previouslyOn": [],
+          "created_at": "2025-09-01T03:24:40.826Z",
+          "updated_at": "2026-02-25T20:31:08.974Z",
+          "tribe": {
+            "name": "Nami",
+            "color": "#fca327"
+          },
+          "eliminatedEpisode": 9
+        },
+        {
+          "castawayId": 233,
+          "fullName": "Jeff Probst",
+          "shortName": "Probst",
+          "age": 63,
+          "hometown": "Wichita, KA",
+          "residence": "Los Angeles, CA",
+          "occupation": "Host",
+          "imageUrl": "https://static.wikia.nocookie.net/survivor/images/a/ae/S46_Jeff.jpg/revision/latest/scale-to-width-down/128?cb=20240205181033",
+          "seasonId": null,
+          "previouslyOn": [],
+          "created_at": "2025-09-01T03:24:40.826Z",
+          "updated_at": "2025-09-01T03:24:40.857Z",
+          "tribe": null,
+          "eliminatedEpisode": null
+        },
+        {
+          "castawayId": 158,
+          "fullName": "Jem Hussain-Adams",
+          "shortName": "Jem",
+          "age": 31,
+          "hometown": "Berbice, Guyana",
+          "residence": "Chicago, IL",
+          "occupation": "International Brand Mentor",
+          "imageUrl": "https://static.wikia.nocookie.net/survivor/images/1/14/S46_jem_t.png/revision/latest/scale-to-width-down/70?cb=20240206001803",
+          "seasonId": 10,
+          "previouslyOn": [],
+          "created_at": "2025-09-01T03:24:40.826Z",
+          "updated_at": "2026-02-25T20:31:05.088Z",
+          "tribe": {
+            "name": "Siga",
+            "color": "#8eda77"
+          },
+          "eliminatedEpisode": 5
+        },
+        {
+          "castawayId": 164,
+          "fullName": "Jess Chong",
+          "shortName": "Jess",
+          "age": 37,
+          "hometown": "Hong Kong/Toronto",
+          "residence": "San Francisco, CA",
+          "occupation": "Software Engineer",
+          "imageUrl": "https://static.wikia.nocookie.net/survivor/images/2/2a/S46_jess_t.png/revision/latest/scale-to-width-down/70?cb=20240206001819",
+          "seasonId": 10,
+          "previouslyOn": [],
+          "created_at": "2025-09-01T03:24:40.826Z",
+          "updated_at": "2026-02-25T20:31:02.875Z",
+          "tribe": {
+            "name": "Yanu",
+            "color": "#bf5dc2"
+          },
+          "eliminatedEpisode": 2
+        },
+        {
+          "castawayId": 165,
+          "fullName": "Kenzie Petty",
+          "shortName": "Kenzie",
+          "age": 28,
+          "hometown": "Gibraltar, MI",
+          "residence": "Charlotte, NC",
+          "occupation": "Salon Owner",
+          "imageUrl": "https://static.wikia.nocookie.net/survivor/images/a/aa/S46_kenzie_t.png/revision/latest/scale-to-width-down/70?cb=20240206001836",
+          "seasonId": 10,
+          "previouslyOn": [],
+          "created_at": "2025-09-01T03:24:40.826Z",
+          "updated_at": "2026-02-25T20:31:14.739Z",
+          "tribe": {
+            "name": "Yanu",
+            "color": "#bf5dc2"
+          },
+          "eliminatedEpisode": null
+        },
+        {
+          "castawayId": 151,
+          "fullName": "Liz Wilcox",
+          "shortName": "Liz",
+          "age": 35,
+          "hometown": "Luther, MI",
+          "residence": "Orlando, FL",
+          "occupation": "Marketing Strategist",
+          "imageUrl": "https://static.wikia.nocookie.net/survivor/images/9/93/S46_liz_t.png/revision/latest/scale-to-width-down/70?cb=20240206001851",
+          "seasonId": 10,
+          "previouslyOn": [],
+          "created_at": "2025-09-01T03:24:40.826Z",
+          "updated_at": "2026-02-25T20:31:12.824Z",
+          "tribe": {
+            "name": "Nami",
+            "color": "#fca327"
+          },
+          "eliminatedEpisode": 13
+        },
+        {
+          "castawayId": 159,
+          "fullName": "Maria Shrime Gonzalez",
+          "shortName": "Maria",
+          "age": 47,
+          "hometown": "Dallas, TX",
+          "residence": "Dallas, TX",
+          "occupation": "Parent Coach",
+          "imageUrl": "https://static.wikia.nocookie.net/survivor/images/6/65/S46_maria_t.png/revision/latest/scale-to-width-down/70?cb=20240206001909",
+          "seasonId": 10,
+          "previouslyOn": [],
+          "created_at": "2025-09-01T03:24:40.826Z",
+          "updated_at": "2026-02-25T20:31:12.083Z",
+          "tribe": {
+            "name": "Siga",
+            "color": "#8eda77"
+          },
+          "eliminatedEpisode": 13
+        },
+        {
+          "castawayId": 160,
+          "fullName": "Moriah Gaynor",
+          "shortName": "Moriah",
+          "age": 28,
+          "hometown": "Boca Raton, FL",
+          "residence": "San Diego, CA",
+          "occupation": "Program Coordinator",
+          "imageUrl": "https://static.wikia.nocookie.net/survivor/images/f/f0/S46_moriah_t.png/revision/latest/scale-to-width-down/70?cb=20240206001925",
+          "seasonId": 10,
+          "previouslyOn": [],
+          "created_at": "2025-09-01T03:24:40.826Z",
+          "updated_at": "2026-02-25T20:31:06.010Z",
+          "tribe": {
+            "name": "Siga",
+            "color": "#8eda77"
+          },
+          "eliminatedEpisode": 6
+        },
+        {
+          "castawayId": 166,
+          "fullName": "Q Burdette",
+          "shortName": "Q",
+          "age": 29,
+          "hometown": "Senatobia, MS",
+          "residence": "Memphis, TN",
+          "occupation": "Real Estate Agent",
+          "imageUrl": "https://static.wikia.nocookie.net/survivor/images/f/f2/S46_q_t.png/revision/latest/scale-to-width-down/70?cb=20240206001948",
+          "seasonId": 10,
+          "previouslyOn": [],
+          "created_at": "2025-09-01T03:24:40.826Z",
+          "updated_at": "2026-02-25T20:31:11.329Z",
+          "tribe": {
+            "name": "Yanu",
+            "color": "#bf5dc2"
+          },
+          "eliminatedEpisode": 12
+        },
+        {
+          "castawayId": 152,
+          "fullName": "Randen Montalvo",
+          "shortName": "Randen",
+          "age": 40,
+          "hometown": " Brooklyn, NY",
+          "residence": "Orlando, FL",
+          "occupation": "Aerospace Tech",
+          "imageUrl": "https://static.wikia.nocookie.net/survivor/images/4/4b/S46_randen_t.png/revision/latest/scale-to-width-down/70?cb=20240206002002",
+          "seasonId": 10,
+          "previouslyOn": [],
+          "created_at": "2025-09-01T03:24:40.826Z",
+          "updated_at": "2026-02-25T20:31:03.679Z",
+          "tribe": {
+            "name": "Nami",
+            "color": "#fca327"
+          },
+          "eliminatedEpisode": 3
+        },
+        {
+          "castawayId": 153,
+          "fullName": "Soda Thompson",
+          "shortName": "Soda",
+          "age": 27,
+          "hometown": "Long Island, NY",
+          "residence": "Lake Hopatcong, NJ",
+          "occupation": "Special Ed Teacher",
+          "imageUrl": "https://static.wikia.nocookie.net/survivor/images/5/58/S46_soda_t.png/revision/latest/scale-to-width-down/70?cb=20240206002021",
+          "seasonId": 10,
+          "previouslyOn": [],
+          "created_at": "2025-09-01T03:24:40.826Z",
+          "updated_at": "2026-02-25T20:31:07.582Z",
+          "tribe": {
+            "name": "Nami",
+            "color": "#fca327"
+          },
+          "eliminatedEpisode": 7
+        },
+        {
+          "castawayId": 154,
+          "fullName": "Tevin Davis",
+          "shortName": "Tevin",
+          "age": 24,
+          "hometown": "Goochland, VA",
+          "residence": "Richmond, VA",
+          "occupation": "Actor",
+          "imageUrl": "https://static.wikia.nocookie.net/survivor/images/e/e2/S46_tevin_t.png/revision/latest/scale-to-width-down/70?cb=20240206002035",
+          "seasonId": 10,
+          "previouslyOn": [],
+          "created_at": "2025-09-01T03:24:40.826Z",
+          "updated_at": "2026-02-25T20:31:08.328Z",
+          "tribe": {
+            "name": "Nami",
+            "color": "#fca327"
+          },
+          "eliminatedEpisode": 8
+        },
+        {
+          "castawayId": 167,
+          "fullName": "Tiffany Nicole Ervin",
+          "shortName": "Tiffany",
+          "age": 32,
+          "hometown": "Franklin Township, NJ",
+          "residence": "Elizabeth, NJ",
+          "occupation": "Artist",
+          "imageUrl": "https://static.wikia.nocookie.net/survivor/images/8/84/S46_tiffany_t.png/revision/latest/scale-to-width-down/70?cb=20240206002055",
+          "seasonId": 10,
+          "previouslyOn": [],
+          "created_at": "2025-09-01T03:24:40.826Z",
+          "updated_at": "2026-02-25T20:31:09.646Z",
+          "tribe": {
+            "name": "Yanu",
+            "color": "#bf5dc2"
+          },
+          "eliminatedEpisode": 10
+        },
+        {
+          "castawayId": 161,
+          "fullName": "Tim Spicer",
+          "shortName": "Tim",
+          "age": 30,
+          "hometown": "Arlington, VA",
+          "residence": "Atlanta, GA",
+          "occupation": "College Coach",
+          "imageUrl": "https://static.wikia.nocookie.net/survivor/images/e/ec/S46_tim_t.png/revision/latest/scale-to-width-down/70?cb=20240206002117",
+          "seasonId": 10,
+          "previouslyOn": [],
+          "created_at": "2025-09-01T03:24:40.826Z",
+          "updated_at": "2026-02-25T20:31:06.820Z",
+          "tribe": {
+            "name": "Siga",
+            "color": "#8eda77"
+          },
+          "eliminatedEpisode": 7
+        },
+        {
+          "castawayId": 155,
+          "fullName": "Venus Vafa",
+          "shortName": "Venus",
+          "age": 24,
+          "hometown": "Hill, Ontario",
+          "residence": "Toronto, ON",
+          "occupation": "Data Analyst",
+          "imageUrl": "https://static.wikia.nocookie.net/survivor/images/9/9b/S46_venus_t.png/revision/latest/scale-to-width-down/70?cb=20240206002134",
+          "seasonId": 10,
+          "previouslyOn": [],
+          "created_at": "2025-09-01T03:24:40.826Z",
+          "updated_at": "2026-02-25T20:31:10.312Z",
+          "tribe": {
+            "name": "Nami",
+            "color": "#fca327"
+          },
+          "eliminatedEpisode": 11
+        }
+      ],
+      "tribes": [
+        {
+          "tribeId": 22,
+          "tribeName": "Nami",
+          "tribeColor": "#fca327",
+          "seasonId": 10,
+          "created_at": "2025-09-01T03:24:40.105Z",
+          "updated_at": "2026-02-25T20:31:00.075Z"
+        },
+        {
+          "tribeId": 23,
+          "tribeName": "Siga",
+          "tribeColor": "#8eda77",
+          "seasonId": 10,
+          "created_at": "2025-09-01T03:24:40.105Z",
+          "updated_at": "2026-02-25T20:31:00.590Z"
+        },
+        {
+          "tribeId": 24,
+          "tribeName": "Yanu",
+          "tribeColor": "#bf5dc2",
+          "seasonId": 10,
+          "created_at": "2025-09-01T03:24:40.105Z",
+          "updated_at": "2026-02-25T20:31:01.220Z"
+        },
+        {
+          "tribeId": 25,
+          "tribeName": "Nuinui",
+          "tribeColor": "#f62f3e",
+          "seasonId": 10,
+          "created_at": "2025-09-01T03:24:40.105Z",
+          "updated_at": "2026-02-25T20:31:01.689Z"
+        }
+      ],
+      "baseEvents": {
+        "1": {
+          "389": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 1,
+            "episodeId": 57,
+            "eventId": 389,
+            "eventName": "advFound",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 159
+              }
+            ]
+          },
+          "390": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 1,
+            "episodeId": 57,
+            "eventId": 390,
+            "eventName": "advFound",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 154
+              }
+            ]
+          },
+          "391": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 1,
+            "episodeId": 57,
+            "eventId": 391,
+            "eventName": "advFound",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 167
+              }
+            ]
+          },
+          "407": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 1,
+            "episodeId": 57,
+            "eventId": 407,
+            "eventName": "spokeEpTitle",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 163
+              }
+            ]
+          },
+          "422": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 1,
+            "episodeId": 57,
+            "eventId": 422,
+            "eventName": "tribe1st",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Tribe",
+                "id": 22
+              }
+            ]
+          },
+          "423": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 1,
+            "episodeId": 57,
+            "eventId": 423,
+            "eventName": "tribe1st",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Tribe",
+                "id": 22
+              }
+            ]
+          },
+          "442": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 1,
+            "episodeId": 57,
+            "eventId": 442,
+            "eventName": "tribe2nd",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Tribe",
+                "id": 23
+              }
+            ]
+          },
+          "443": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 1,
+            "episodeId": 57,
+            "eventId": 443,
+            "eventName": "tribe2nd",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Tribe",
+                "id": 23
+              }
+            ]
+          },
+          "503": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 1,
+            "episodeId": 57,
+            "eventId": 503,
+            "eventName": "elim",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 163
+              }
+            ]
+          },
+          "508": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 1,
+            "episodeId": 57,
+            "eventId": 508,
+            "eventName": "tribeUpdate",
+            "label": "Starting Tribes",
+            "notes": [],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 154
+              },
+              {
+                "type": "Castaway",
+                "id": 150
+              },
+              {
+                "type": "Castaway",
+                "id": 152
+              },
+              {
+                "type": "Castaway",
+                "id": 155
+              },
+              {
+                "type": "Castaway",
+                "id": 153
+              },
+              {
+                "type": "Castaway",
+                "id": 151
+              },
+              {
+                "type": "Tribe",
+                "id": 22
+              }
+            ]
+          },
+          "510": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 1,
+            "episodeId": 57,
+            "eventId": 510,
+            "eventName": "tribeUpdate",
+            "label": "Starting Tribes",
+            "notes": [],
+            "references": [
+              {
+                "type": "Tribe",
+                "id": 24
+              },
+              {
+                "type": "Castaway",
+                "id": 163
+              },
+              {
+                "type": "Castaway",
+                "id": 162
+              },
+              {
+                "type": "Castaway",
+                "id": 164
+              },
+              {
+                "type": "Castaway",
+                "id": 167
+              },
+              {
+                "type": "Castaway",
+                "id": 166
+              },
+              {
+                "type": "Castaway",
+                "id": 165
+              }
+            ]
+          },
+          "511": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 1,
+            "episodeId": 57,
+            "eventId": 511,
+            "eventName": "tribeUpdate",
+            "label": "Starting Tribes",
+            "notes": [],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 157
+              },
+              {
+                "type": "Castaway",
+                "id": 160
+              },
+              {
+                "type": "Castaway",
+                "id": 158
+              },
+              {
+                "type": "Castaway",
+                "id": 161
+              },
+              {
+                "type": "Tribe",
+                "id": 23
+              },
+              {
+                "type": "Castaway",
+                "id": 156
+              },
+              {
+                "type": "Castaway",
+                "id": 159
+              }
+            ]
+          }
+        },
+        "2": {
+          "392": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 2,
+            "episodeId": 58,
+            "eventId": 392,
+            "eventName": "spokeEpTitle",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 157
+              }
+            ]
+          },
+          "410": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 2,
+            "episodeId": 58,
+            "eventId": 410,
+            "eventName": "tribe1st",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Tribe",
+                "id": 22
+              }
+            ]
+          },
+          "425": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 2,
+            "episodeId": 58,
+            "eventId": 425,
+            "eventName": "tribe2nd",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Tribe",
+                "id": 23
+              }
+            ]
+          },
+          "489": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 2,
+            "episodeId": 58,
+            "eventId": 489,
+            "eventName": "elim",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 164
+              }
+            ]
+          }
+        },
+        "3": {
+          "395": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 3,
+            "episodeId": 59,
+            "eventId": 395,
+            "eventName": "spokeEpTitle",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 166
+              }
+            ]
+          },
+          "414": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 3,
+            "episodeId": 59,
+            "eventId": 414,
+            "eventName": "tribe1st",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Tribe",
+                "id": 22
+              }
+            ]
+          },
+          "429": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 3,
+            "episodeId": 59,
+            "eventId": 429,
+            "eventName": "tribe2nd",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Tribe",
+                "id": 23
+              }
+            ]
+          },
+          "490": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 3,
+            "episodeId": 59,
+            "eventId": 490,
+            "eventName": "elim",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 152
+              }
+            ]
+          }
+        },
+        "4": {
+          "393": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 4,
+            "episodeId": 60,
+            "eventId": 393,
+            "eventName": "spokeEpTitle",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 165
+              }
+            ]
+          },
+          "411": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 4,
+            "episodeId": 60,
+            "eventId": 411,
+            "eventName": "tribe1st",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Tribe",
+                "id": 24
+              }
+            ]
+          },
+          "412": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 4,
+            "episodeId": 60,
+            "eventId": 412,
+            "eventName": "tribe1st",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Tribe",
+                "id": 22
+              }
+            ]
+          },
+          "427": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 4,
+            "episodeId": 60,
+            "eventId": 427,
+            "eventName": "tribe2nd",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Tribe",
+                "id": 22
+              }
+            ]
+          },
+          "428": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 4,
+            "episodeId": 60,
+            "eventId": 428,
+            "eventName": "tribe2nd",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Tribe",
+                "id": 23
+              }
+            ]
+          },
+          "488": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 4,
+            "episodeId": 60,
+            "eventId": 488,
+            "eventName": "elim",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 162
+              }
+            ]
+          }
+        },
+        "5": {
+          "397": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 5,
+            "episodeId": 61,
+            "eventId": 397,
+            "eventName": "advFound",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 158
+              }
+            ]
+          },
+          "409": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 5,
+            "episodeId": 61,
+            "eventId": 409,
+            "eventName": "badAdvPlay",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 159
+              }
+            ]
+          },
+          "424": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 5,
+            "episodeId": 61,
+            "eventId": 424,
+            "eventName": "advElim",
+            "label": "",
+            "notes": [
+              "eliminated with idol"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 158
+              }
+            ]
+          },
+          "446": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 5,
+            "episodeId": 61,
+            "eventId": 446,
+            "eventName": "spokeEpTitle",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 161
+              }
+            ]
+          },
+          "466": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 5,
+            "episodeId": 61,
+            "eventId": 466,
+            "eventName": "tribe1st",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Tribe",
+                "id": 22
+              }
+            ]
+          },
+          "494": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 5,
+            "episodeId": 61,
+            "eventId": 494,
+            "eventName": "tribe2nd",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Tribe",
+                "id": 24
+              }
+            ]
+          },
+          "512": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 5,
+            "episodeId": 61,
+            "eventId": 512,
+            "eventName": "elim",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 158
+              }
+            ]
+          }
+        },
+        "6": {
+          "396": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 6,
+            "episodeId": 62,
+            "eventId": 396,
+            "eventName": "advFound",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 150
+              }
+            ]
+          },
+          "405": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 6,
+            "episodeId": 62,
+            "eventId": 405,
+            "eventName": "spokeEpTitle",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 166
+              }
+            ]
+          },
+          "421": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 6,
+            "episodeId": 62,
+            "eventId": 421,
+            "eventName": "tribe1st",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 161
+              },
+              {
+                "type": "Castaway",
+                "id": 156
+              },
+              {
+                "type": "Castaway",
+                "id": 165
+              },
+              {
+                "type": "Castaway",
+                "id": 154
+              },
+              {
+                "type": "Castaway",
+                "id": 150
+              },
+              {
+                "type": "Castaway",
+                "id": 166
+              }
+            ]
+          },
+          "444": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 6,
+            "episodeId": 62,
+            "eventId": 444,
+            "eventName": "tribe2nd",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 167
+              }
+            ]
+          },
+          "502": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 6,
+            "episodeId": 62,
+            "eventId": 502,
+            "eventName": "elim",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 160
+              }
+            ]
+          }
+        },
+        "7": {
+          "404": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 7,
+            "episodeId": 63,
+            "eventId": 404,
+            "eventName": "indivWin",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 165
+              },
+              {
+                "type": "Castaway",
+                "id": 159
+              }
+            ]
+          },
+          "441": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 7,
+            "episodeId": 63,
+            "eventId": 441,
+            "eventName": "elim",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 153
+              },
+              {
+                "type": "Castaway",
+                "id": 161
+              }
+            ]
+          },
+          "483": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 7,
+            "episodeId": 63,
+            "eventId": 483,
+            "eventName": "tribeUpdate",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 159
+              },
+              {
+                "type": "Castaway",
+                "id": 155
+              },
+              {
+                "type": "Castaway",
+                "id": 166
+              },
+              {
+                "type": "Castaway",
+                "id": 157
+              },
+              {
+                "type": "Castaway",
+                "id": 156
+              },
+              {
+                "type": "Tribe",
+                "id": 25
+              },
+              {
+                "type": "Castaway",
+                "id": 151
+              },
+              {
+                "type": "Castaway",
+                "id": 167
+              },
+              {
+                "type": "Castaway",
+                "id": 165
+              },
+              {
+                "type": "Castaway",
+                "id": 150
+              },
+              {
+                "type": "Castaway",
+                "id": 154
+              }
+            ]
+          }
+        },
+        "8": {
+          "398": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 8,
+            "episodeId": 64,
+            "eventId": 398,
+            "eventName": "spokeEpTitle",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 166
+              }
+            ]
+          },
+          "408": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 8,
+            "episodeId": 64,
+            "eventId": 408,
+            "eventName": "indivWin",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 150
+              }
+            ]
+          },
+          "454": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 8,
+            "episodeId": 64,
+            "eventId": 454,
+            "eventName": "elim",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 154
+              }
+            ]
+          }
+        },
+        "9": {
+          "399": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 9,
+            "episodeId": 65,
+            "eventId": 399,
+            "eventName": "advElim",
+            "label": "",
+            "notes": [
+              "eliminated with idol"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 150
+              }
+            ]
+          },
+          "413": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 9,
+            "episodeId": 65,
+            "eventId": 413,
+            "eventName": "spokeEpTitle",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 156
+              }
+            ]
+          },
+          "430": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 9,
+            "episodeId": 65,
+            "eventId": 430,
+            "eventName": "indivWin",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 157
+              }
+            ]
+          },
+          "479": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 9,
+            "episodeId": 65,
+            "eventId": 479,
+            "eventName": "elim",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 150
+              }
+            ]
+          }
+        },
+        "10": {
+          "394": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 10,
+            "episodeId": 66,
+            "eventId": 394,
+            "eventName": "advElim",
+            "label": "",
+            "notes": [
+              "eliminated with idol"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 167
+              }
+            ]
+          },
+          "418": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 10,
+            "episodeId": 66,
+            "eventId": 418,
+            "eventName": "indivWin",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 157
+              }
+            ]
+          },
+          "435": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 10,
+            "episodeId": 66,
+            "eventId": 435,
+            "eventName": "indivReward",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 166
+              }
+            ]
+          },
+          "481": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 10,
+            "episodeId": 66,
+            "eventId": 481,
+            "eventName": "elim",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 167
+              }
+            ]
+          }
+        },
+        "11": {
+          "401": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 11,
+            "episodeId": 67,
+            "eventId": 401,
+            "eventName": "advFound",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 155
+              }
+            ]
+          },
+          "415": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 11,
+            "episodeId": 67,
+            "eventId": 415,
+            "eventName": "advElim",
+            "label": "",
+            "notes": [
+              "eliminated with idol"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 155
+              }
+            ]
+          },
+          "434": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 11,
+            "episodeId": 67,
+            "eventId": 434,
+            "eventName": "spokeEpTitle",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 165
+              }
+            ]
+          },
+          "451": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 11,
+            "episodeId": 67,
+            "eventId": 451,
+            "eventName": "indivWin",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 159
+              }
+            ]
+          },
+          "500": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 11,
+            "episodeId": 67,
+            "eventId": 500,
+            "eventName": "elim",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 155
+              }
+            ]
+          }
+        },
+        "12": {
+          "403": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 12,
+            "episodeId": 68,
+            "eventId": 403,
+            "eventName": "advFound",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 166
+              }
+            ]
+          },
+          "416": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 12,
+            "episodeId": 68,
+            "eventId": 416,
+            "eventName": "advElim",
+            "label": "",
+            "notes": [
+              "eliminated with idol"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 166
+              }
+            ]
+          },
+          "437": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 12,
+            "episodeId": 68,
+            "eventId": 437,
+            "eventName": "indivWin",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 159
+              }
+            ]
+          },
+          "457": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 12,
+            "episodeId": 68,
+            "eventId": 457,
+            "eventName": "indivReward",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 157
+              }
+            ]
+          },
+          "498": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 12,
+            "episodeId": 68,
+            "eventId": 498,
+            "eventName": "elim",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 166
+              }
+            ]
+          }
+        },
+        "13": {
+          "402": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 13,
+            "episodeId": 69,
+            "eventId": 402,
+            "eventName": "spokeEpTitle",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 157
+              }
+            ]
+          },
+          "417": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 13,
+            "episodeId": 69,
+            "eventId": 417,
+            "eventName": "indivWin",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 156
+              },
+              {
+                "type": "Castaway",
+                "id": 165
+              }
+            ]
+          },
+          "439": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 13,
+            "episodeId": 69,
+            "eventId": 439,
+            "eventName": "finalists",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 165
+              },
+              {
+                "type": "Castaway",
+                "id": 157
+              },
+              {
+                "type": "Castaway",
+                "id": 156
+              }
+            ]
+          },
+          "459": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 13,
+            "episodeId": 69,
+            "eventId": 459,
+            "eventName": "fireWin",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 165
+              }
+            ]
+          },
+          "484": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 13,
+            "episodeId": 69,
+            "eventId": 484,
+            "eventName": "soleSurvivor",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 165
+              }
+            ]
+          },
+          "501": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 13,
+            "episodeId": 69,
+            "eventId": 501,
+            "eventName": "elim",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 151
+              },
+              {
+                "type": "Castaway",
+                "id": 159
+              }
+            ]
+          }
+        }
+      },
+      "episodes": [
+        {
+          "seasonId": 10,
+          "episodeId": 57,
+          "episodeNumber": 1,
+          "title": "This is Where The Legends are Made",
+          "airDate": "2024-02-28T00:00:00.000Z",
+          "runtime": 90,
+          "airStatus": "Aired",
+          "isMerge": false,
+          "isFinale": false
+        },
+        {
+          "seasonId": 10,
+          "episodeId": 58,
+          "episodeNumber": 2,
+          "title": "Scorpio Energy",
+          "airDate": "2024-03-06T00:00:00.000Z",
+          "runtime": 90,
+          "airStatus": "Aired",
+          "isMerge": false,
+          "isFinale": false
+        },
+        {
+          "seasonId": 10,
+          "episodeId": 59,
+          "episodeNumber": 3,
+          "title": "Wackadoodles Win",
+          "airDate": "2024-03-13T00:00:00.000Z",
+          "runtime": 90,
+          "airStatus": "Aired",
+          "isMerge": false,
+          "isFinale": false
+        },
+        {
+          "seasonId": 10,
+          "episodeId": 60,
+          "episodeNumber": 4,
+          "title": "Don't Touch the Oven",
+          "airDate": "2024-03-20T00:00:00.000Z",
+          "runtime": 90,
+          "airStatus": "Aired",
+          "isMerge": false,
+          "isFinale": false
+        },
+        {
+          "seasonId": 10,
+          "episodeId": 61,
+          "episodeNumber": 5,
+          "title": "Tiki Man",
+          "airDate": "2024-03-27T00:00:00.000Z",
+          "runtime": 90,
+          "airStatus": "Aired",
+          "isMerge": false,
+          "isFinale": false
+        },
+        {
+          "seasonId": 10,
+          "episodeId": 62,
+          "episodeNumber": 6,
+          "title": "Cancel Christmas",
+          "airDate": "2024-04-03T00:00:00.000Z",
+          "runtime": 90,
+          "airStatus": "Aired",
+          "isMerge": false,
+          "isFinale": false
+        },
+        {
+          "seasonId": 10,
+          "episodeId": 63,
+          "episodeNumber": 7,
+          "title": "Episode Several",
+          "airDate": "2024-04-10T00:00:00.000Z",
+          "runtime": 90,
+          "airStatus": "Aired",
+          "isMerge": true,
+          "isFinale": false
+        },
+        {
+          "seasonId": 10,
+          "episodeId": 64,
+          "episodeNumber": 8,
+          "title": "Hide 'n Seek",
+          "airDate": "2024-04-17T00:00:00.000Z",
+          "runtime": 90,
+          "airStatus": "Aired",
+          "isMerge": false,
+          "isFinale": false
+        },
+        {
+          "seasonId": 10,
+          "episodeId": 65,
+          "episodeNumber": 9,
+          "title": "Spicy Jeff",
+          "airDate": "2024-04-24T00:00:00.000Z",
+          "runtime": 90,
+          "airStatus": "Aired",
+          "isMerge": false,
+          "isFinale": false
+        },
+        {
+          "seasonId": 10,
+          "episodeId": 66,
+          "episodeNumber": 10,
+          "title": "Run the Red Light",
+          "airDate": "2024-05-01T00:00:00.000Z",
+          "runtime": 90,
+          "airStatus": "Aired",
+          "isMerge": false,
+          "isFinale": false
+        },
+        {
+          "seasonId": 10,
+          "episodeId": 67,
+          "episodeNumber": 11,
+          "title": "My Messy, Sweet Little Friend",
+          "airDate": "2024-05-08T00:00:00.000Z",
+          "runtime": 90,
+          "airStatus": "Aired",
+          "isMerge": false,
+          "isFinale": false
+        },
+        {
+          "seasonId": 10,
+          "episodeId": 68,
+          "episodeNumber": 12,
+          "title": "Mamma Bear",
+          "airDate": "2024-05-15T00:00:00.000Z",
+          "runtime": 90,
+          "airStatus": "Aired",
+          "isMerge": false,
+          "isFinale": false
+        },
+        {
+          "seasonId": 10,
+          "episodeId": 69,
+          "episodeNumber": 13,
+          "title": "Friends Going to War",
+          "airDate": "2024-05-22T00:00:00.000Z",
+          "runtime": 90,
+          "airStatus": "Aired",
+          "isMerge": false,
+          "isFinale": false
+        }
+      ],
+      "tribesTimeline": {
+        "1": {
+          "22": [
+            154,
+            150,
+            152,
+            155,
+            153,
+            151
+          ],
+          "23": [
+            159,
+            156,
+            161,
+            158,
+            160,
+            157
+          ],
+          "24": [
+            165,
+            166,
+            167,
+            164,
+            162,
+            163
+          ]
+        },
+        "7": {
+          "25": [
+            165,
+            150,
+            154,
+            159,
+            155,
+            166,
+            157,
+            156,
+            151,
+            167
+          ]
+        }
+      },
+      "eliminations": [
+        [],
+        [
+          {
+            "castawayId": 163,
+            "eventId": 503
+          }
+        ],
+        [
+          {
+            "castawayId": 164,
+            "eventId": 489
+          }
+        ],
+        [
+          {
+            "castawayId": 152,
+            "eventId": 490
+          }
+        ],
+        [
+          {
+            "castawayId": 162,
+            "eventId": 488
+          }
+        ],
+        [
+          {
+            "castawayId": 158,
+            "eventId": 512
+          }
+        ],
+        [
+          {
+            "castawayId": 160,
+            "eventId": 502
+          }
+        ],
+        [
+          {
+            "castawayId": 161,
+            "eventId": 441
+          },
+          {
+            "castawayId": 153,
+            "eventId": 441
+          }
+        ],
+        [
+          {
+            "castawayId": 154,
+            "eventId": 454
+          }
+        ],
+        [
+          {
+            "castawayId": 150,
+            "eventId": 479
+          }
+        ],
+        [
+          {
+            "castawayId": 167,
+            "eventId": 481
+          }
+        ],
+        [
+          {
+            "castawayId": 155,
+            "eventId": 500
+          }
+        ],
+        [
+          {
+            "castawayId": 166,
+            "eventId": 498
+          }
+        ],
+        [
+          {
+            "castawayId": 159,
+            "eventId": 501
+          },
+          {
+            "castawayId": 151,
+            "eventId": 501
+          }
+        ]
+      ],
+      "keyEpisodes": {
+        "previousEpisode": {
+          "seasonId": 10,
+          "episodeId": 69,
+          "episodeNumber": 13,
+          "title": "Friends Going to War",
+          "airDate": "2024-05-22T00:00:00.000Z",
+          "runtime": 90,
+          "airStatus": "Aired",
+          "isMerge": false,
+          "isFinale": false
+        },
+        "nextEpisode": null,
+        "mergeEpisode": {
+          "seasonId": 10,
+          "episodeId": 63,
+          "episodeNumber": 7,
+          "title": "Episode Several",
+          "airDate": "2024-04-10T00:00:00.000Z",
+          "runtime": 90,
+          "airStatus": "Aired",
+          "isMerge": true,
+          "isFinale": false
+        }
+      }
+    }
+  ]
+}

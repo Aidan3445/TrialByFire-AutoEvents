@@ -7,6 +7,7 @@
   },
   "scripts": {
     "replay": "node lib/replay.ts",
+    "derive": "node lib/deriveReplay.ts",
     "cue-server": "node lib/cueServer.ts",
     "typecheck": "tsc"
   },
