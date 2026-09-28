@@ -17,6 +17,7 @@
 import { readFileSync, readdirSync, mkdirSync, writeFileSync, existsSync } from "fs";
 import { join, basename, dirname } from "path";
 import { fileURLToPath } from "url";
+import { parseArgs } from "util";
 import { readCueFile } from "./input.ts";
 import { cleanAll } from "./cues.ts";
 import { auditAnchors } from "./scanner.ts";
@@ -27,29 +28,48 @@ import type { CancelEvent, CleanerStats, Context, Hit, Prompt, Segment } from ".
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 
-const args = process.argv.slice(2);
-const IN = args[0];
-const argOf = (f: string, d: string) => {
-  const i = args.indexOf(f);
-  return i >= 0 && args[i + 1] ? args[i + 1] : d;
-};
+const USAGE = `usage: node lib/replay.ts <cues.jsonl|transcript.txt> [options]
+   or: npm run replay -- <cues.jsonl|transcript.txt> [options]
+  --episode NAME   output file prefix (default: input file name)
+  --context FILE   season context JSON (default: contexts/{episode}.json)
+  --lead    N      seconds to include before start anchor (default: 20)
+  --tail    N      seconds to include after end anchor (default: 20)
+  --audit          print every anchor match by segment type, then exit`;
 
-if (!IN || IN.startsWith("--")) {
-  console.error("usage: node lib/replay.ts <cues.jsonl|transcript.txt> [options]");
-  console.error("  --episode NAME   output file prefix (default: input file name)");
-  console.error("  --context FILE   season context JSON (default: contexts/{episode}.json)");
-  console.error("  --lead    N      seconds to include before start anchor (default: 20)");
-  console.error("  --tail    N      seconds to include after end anchor (default: 20)");
-  console.error("  --audit          print every anchor match by segment type, then exit");
+function fail(message: string): never {
+  console.error(`${message}\n\n${USAGE}`);
   process.exit(2);
 }
 
-const EPISODE = argOf("--episode", basename(IN).replace(/\.(jsonl|txt)$/, ""));
-const BUFFER = { lead: Number(argOf("--lead", "20")), tail: Number(argOf("--tail", "20")) };
+let parsed;
+try {
+  parsed = parseArgs({
+    allowPositionals: true,
+    options: {
+      episode: { type: "string" },
+      context: { type: "string" },
+      lead: { type: "string", default: "20" },
+      tail: { type: "string", default: "20" },
+      audit: { type: "boolean", default: false },
+    },
+  });
+} catch (e) {
+  fail((e as Error).message);
+}
+const { values: opts, positionals } = parsed;
+
+if (positionals.length !== 1)
+  fail(positionals.length ? `expected one input file, got: ${positionals.join(" ")}` : "missing input file");
+const IN = positionals[0];
+if (!existsSync(IN)) fail(`input file not found: ${IN}`);
+
+const EPISODE = opts.episode ?? basename(IN).replace(/\.(jsonl|txt)$/, "");
+const BUFFER = { lead: Number(opts.lead), tail: Number(opts.tail) };
+if (!Number.isFinite(BUFFER.lead) || !Number.isFinite(BUFFER.tail)) fail("--lead and --tail must be numbers");
 
 function loadContext(): Context {
-  const explicit = args.includes("--context");
-  const path = argOf("--context", join(ROOT, "contexts", `${EPISODE}.json`));
+  const explicit = opts.context !== undefined;
+  const path = opts.context ?? join(ROOT, "contexts", `${EPISODE}.json`);
   if (!existsSync(path)) {
     if (explicit) {
       console.error(`context file not found: ${path}`);
@@ -77,7 +97,7 @@ function logStats(stats: CleanerStats) {
   if (preview) console.log(`preview at ${preview.from.toFixed(0)}s, episode ended there`);
 }
 
-if (args.includes("--audit")) {
+if (opts.audit) {
   const { cues, stats } = cleanAll(raw);
   logStats(stats);
   console.log("\nEvery anchor match in the file, by segment type. x = excluded.\n");
