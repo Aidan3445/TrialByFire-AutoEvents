@@ -32,7 +32,7 @@ const CUES = new Map();
 const CLEAN = new Set(
   "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 .,'\"?!-:;"
 );
-const MAX_SANE_DURATION = 10; 
+const MAX_SANE_DURATION = 10;
 
 /** @returns {{score: number, reasons: string[]}} */
 export function suspectScore(cue) {
@@ -247,8 +247,8 @@ const server = createServer((req, res) => {
       const last = (payload.cues ?? []).at(-1);
       console.log(
         `[cue] +${added}/${n}  total=${CUES.size}` +
-          (last?.start != null ? `  t=${last.start.toFixed(1)}s` : "") +
-          (last?.text ? `  ${last.text.slice(0, 48)}` : "")
+        (last?.start != null ? `  t=${last.start.toFixed(1)}s` : "") +
+        (last?.text ? `  ${last.text.slice(0, 48)}` : "")
       );
       send(res, 200, { accepted: added, total: CUES.size });
     });
