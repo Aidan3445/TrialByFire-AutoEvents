@@ -1,6 +1,27 @@
 import { noul, keyOf, qset, withCanaries } from "./helpers.ts";
 import { phrases } from "../lib/match.ts";
-import type { Context, SegmentDef } from "../lib/types/index.ts";
+import { draft, gate, names } from "../lib/derive.ts";
+import type { Context, Outcome, Reader, SegmentDef } from "../lib/types/index.ts";
+
+function derive(r: Reader): Outcome {
+  const g = gate(r, "notable_event");
+  if (!g.open) return { detected: g.detected, events: [] };
+  const who = r.people("involves_");
+  const what = r.yes("is_journey") ? "Journey" : "Notable event";
+  return {
+    detected: g.detected,
+    events: [
+      draft("otherNotes", {
+        label: "Other Notes",
+        confidence: g.detected,
+        people: who.yes,
+        notes: [`${what}: ${names(who.yes) || "?"}`],
+        // Body text is only ever a draft
+        unresolved: [...g.doubt, { field: "notes", reason: "drafted, review the wording" }],
+      }),
+    ],
+  };
+}
 
 function build(c: Context) {
   const q = qset();
@@ -54,6 +75,7 @@ const journey: SegmentDef = {
   end: phrases(["grab your stuff", "head out", "head back", "good luck", "back to camp"]),
   maxSpan: 240,
   build,
+  derive,
 };
 
 export default journey;

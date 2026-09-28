@@ -1,6 +1,7 @@
 import { rx, noul, choice, keyOf, cap, qset, withCanaries, RULES_TALK } from "./helpers.ts";
 import { phrases } from "../lib/match.ts";
-import type { Context, SegmentDef } from "../lib/types/index.ts";
+import { check, draft, gate, names, pick } from "../lib/derive.ts";
+import type { Check, Context, DraftEvent, Outcome, Reader, Scored, SegmentDef, Unresolved } from "../lib/types/index.ts";
 
 const COLOURS = ["blue", "red", "yellow", "green", "orange", "purple", "black", "white", "pink"];
 
@@ -74,6 +75,135 @@ function build(c: Context, info: ChallengeInfo) {
   return q;
 }
 
+/** Label from what was at stake; a combined challenge is one event, not two. */
+function prize(r: Reader, kind: "Individual" | "Tribe") {
+  const imm = r.p("immunity_at_stake") ?? 0;
+  const rew = r.p("reward_at_stake") ?? 0;
+  const immunity = imm >= 0.5;
+  const reward = rew >= 0.5;
+  const label = immunity && reward ? `${kind} Immunity and Reward` : immunity ? `${kind} Immunity` : `${kind} Reward`;
+  const certainty = Math.min(Math.max(imm, 1 - imm), Math.max(rew, 1 - rew));
+  const unresolved: Unresolved[] =
+    r.is("immunity_at_stake") === "unsure" || r.is("reward_at_stake") === "unsure"
+      ? [
+          {
+            field: "label",
+            reason: `prize unsure (immunity ${imm}, reward ${rew})`,
+            options: [`${kind} Immunity and Reward`, `${kind} Immunity`, `${kind} Reward`].map((value) => ({ value })),
+          },
+        ]
+      : [];
+  return { immunity, reward, label, certainty, unresolved };
+}
+
+interface Team {
+  name: string;
+  key: string;
+  /** Existing tribes are app references; one-off teams reference their members. */
+  tribe: boolean;
+  members: Scored[];
+}
+
+function teamsOf(r: Reader, c: Context): Team[] {
+  if (r.choice("grouping")?.value !== "new_teams")
+    return c.tribes.map((t) => ({ name: t, key: keyOf(t), tribe: true, members: [] }));
+  return r
+    .keys(/^team_exists_/)
+    .filter((k) => r.yes(k))
+    .map((k) => {
+      const key = k.slice("team_exists_".length);
+      return { name: cap(key), key, tribe: false, members: r.people(`on_${key}_`).yes };
+    });
+}
+
+function deriveIndividual(r: Reader, doubt: Unresolved[], events: DraftEvent[], checks: Check[]) {
+  const pr = prize(r, "Individual");
+  const winners = r.people(pr.immunity ? "won_immunity_" : "won_reward_");
+  events.push(
+    draft(pr.immunity ? "indivWin" : "indivReward", {
+      label: pr.immunity ? pr.label : "Individual Reward",
+      labelConfidence: pr.certainty,
+      confidence: r.p("is_challenge"),
+      people: winners.yes,
+      unresolved: [...doubt, ...pr.unresolved, ...(winners.yes.length ? [] : [pick("references", winners, "winner unclear")])],
+    })
+  );
+  if (pr.reward && winners.yes.length) {
+    // The winner scores; who they took along is only a note
+    const brought = r.people("brought_on_reward_");
+    if (brought.plausible.length)
+      events.push(
+        draft("otherNotes", {
+          label: "Other Notes",
+          people: brought.yes,
+          notes: [`${names(winners.yes)} brought ${names(brought.yes) || "?"} on the reward`],
+          unresolved: brought.unsure.length ? [pick("references", brought, "who went on the reward")] : [],
+        })
+      );
+  }
+  const many = r.is("multiple_winners");
+  if (many === "yes" || many === "no")
+    checks.push(
+      check("winner count matches multiple_winners", (winners.yes.length > 1) === (many === "yes"), `${winners.yes.length} winners, multiple_winners ${r.p("multiple_winners")}`, true)
+    );
+}
+
+function deriveTeams(r: Reader, c: Context, doubt: Unresolved[], events: DraftEvent[], checks: Check[]) {
+  const pr = prize(r, "Tribe");
+  const teams = teamsOf(r, c);
+  const refs = (t: Team) => (t.tribe ? { tribes: [t.name] } : { people: t.members });
+  const placed = (place: "first" | "second", eventName: "tribe1st" | "tribe2nd") => {
+    const hits = teams.filter((t) => r.yes(`${place}_${t.key}`));
+    for (const t of hits)
+      events.push(
+        draft(eventName, {
+          label: pr.label,
+          labelConfidence: pr.certainty,
+          confidence: r.p(`${place}_${t.key}`),
+          ...refs(t),
+          notes: t.tribe ? [] : [`${t.name} team: ${names(t.members)}`],
+          unresolved: [...doubt, ...pr.unresolved],
+        })
+      );
+    if (!hits.length && teams.length)
+      events.push(
+        draft(eventName, {
+          label: pr.label,
+          unresolved: [
+            {
+              field: "references",
+              reason: `${place} place unclear`,
+              options: teams.map((t) => ({ value: t.name, confidence: r.p(`${place}_${t.key}`) ?? undefined })),
+            },
+          ],
+        })
+      );
+  };
+  placed("first", "tribe1st");
+  // Second place only scores with three or more teams; with two it is last
+  if (r.choice("team_count")?.value === "three_or_more") placed("second", "tribe2nd");
+
+  if (teams.some((t) => !t.tribe)) {
+    const count = new Map<string, number>();
+    for (const t of teams) for (const m of t.members) count.set(m.name, (count.get(m.name) ?? 0) + 1);
+    const twice = [...count].filter(([, n]) => n > 1).map(([name]) => name);
+    const missing = c.cast.filter((name) => !count.has(name));
+    checks.push(check("nobody on two teams", !twice.length, twice.join(", ") || "ok"));
+    // Uneven teams mean someone sits out, so a gap is only a warning
+    checks.push(check("every castaway on a team", !missing.length, missing.join(", ") || "ok", true));
+  }
+}
+
+function derive(r: Reader, c: Context): Outcome {
+  const g = gate(r, "is_challenge");
+  if (!g.open) return { detected: g.detected, events: [] };
+  const events: DraftEvent[] = [];
+  const checks: Check[] = [];
+  if (r.choice("field_kind")?.value === "team") deriveTeams(r, c, g.doubt, events, checks);
+  else deriveIndividual(r, g.doubt, events, checks);
+  return { detected: g.detected, events, checks };
+}
+
 const challenge: SegmentDef<ChallengeInfo> = {
   id: "challenge",
   events: ["indivWin", "indivReward", "tribe1st", "tribe2nd"],
@@ -121,6 +251,7 @@ const challenge: SegmentDef<ChallengeInfo> = {
   // Arrival and rules often sit on the far side of an ad break from the result
   mergeIncomplete: true,
   build,
+  derive,
   // One-off team names come from the segment text; the placeholder keeps
   // team questions inside the question set version hash
   inspect: (text) => ({ colours: coloursIn(text) }),

@@ -2,6 +2,7 @@ import type { BaseEventName } from "./events.ts";
 import type { Context } from "./context.ts";
 import type { Phrase, Match } from "./match.ts";
 import type { QSet, Labels, Template } from "./question.ts";
+import type { Outcome, Reader } from "./derive.ts";
 
 /**
  * One detectable scene type: its anchors, its question set, and how the
@@ -36,6 +37,8 @@ export interface SegmentDef<Info extends object = object> {
   templates?: Template[];
   /** Anchors that depend on the episode, e.g. the title. */
   withContext?(ctx: Context): Partial<SegmentDef<Info>>;
+  /** Turns Jev's answers into draft events, checks, and follow-up questions. */
+  derive?(r: Reader, ctx: Context): Outcome;
 }
 
 /** An anchor match at a cue. */

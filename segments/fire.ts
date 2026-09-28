@@ -1,6 +1,37 @@
 import { rx, noul, keyOf, qset, withCanaries, RULES_TALK } from "./helpers.ts";
 import { phrases } from "../lib/match.ts";
-import type { Context, SegmentDef } from "../lib/types/index.ts";
+import { check, draft, gate, names, pick } from "../lib/derive.ts";
+import type { Context, Outcome, Reader, SegmentDef } from "../lib/types/index.ts";
+
+function derive(r: Reader): Outcome {
+  const g = gate(r, "fire_challenge_occurred");
+  if (!g.open) return { detected: g.detected, events: [] };
+  const winner = r.people("fire_win_");
+  const competed = r.people("fire_competed_");
+  const losers = competed.yes.filter((s) => !winner.yes.some((w) => w.name === s.name));
+  return {
+    detected: g.detected,
+    events: [
+      draft("fireWin", {
+        label: "Won Fire Making",
+        confidence: g.detected,
+        people: winner.yes,
+        unresolved: [...g.doubt, ...(winner.yes.length === 1 ? [] : [pick("references", winner, "who won fire")])],
+      }),
+      // Leaving by fire is noVoteExit, never elim: no vote decided it
+      draft("noVoteExit", {
+        label: "Lost Fire Making",
+        confidence: g.detected,
+        people: losers,
+        unresolved: losers.length === 1 ? [] : [pick("references", competed, "who lost fire")],
+      }),
+    ],
+    checks: [
+      check("exactly one fire winner", winner.yes.length === 1, names(winner.yes) || "none"),
+      check("winner competed", winner.yes.every((w) => competed.yes.some((s) => s.name === w.name)), names(competed.yes)),
+    ],
+  };
+}
 
 function build(c: Context) {
   const q = qset();
@@ -40,6 +71,7 @@ const fire: SegmentDef = {
   end: phrases(["the tribe has spoken", "bring me your torch", "snuff"]),
   maxSpan: 900,
   build,
+  derive,
 };
 
 export default fire;

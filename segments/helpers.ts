@@ -8,7 +8,7 @@ export const choice = <K extends string>(instructions: string, criteria: Record<
   instructions,
   criteria,
 });
-export const keyOf = (s: string): string => s.toLowerCase().replace(/[^a-z0-9]+/g, "_").replace(/^_|_$/g, "");
+export { keyOf } from "../lib/keys.ts";
 export const cap = (s: string): string => s.charAt(0).toUpperCase() + s.slice(1);
 
 // Mix in the canaries for testing the system against non-existing castaways

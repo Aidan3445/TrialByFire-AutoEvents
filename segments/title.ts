@@ -1,6 +1,20 @@
 import { noul, keyOf, qset, withCanaries } from "./helpers.ts";
 import { phrases } from "../lib/match.ts";
-import type { Context, SegmentDef } from "../lib/types/index.ts";
+import { draft, gate, pick } from "../lib/derive.ts";
+import type { Context, Outcome, Reader, SegmentDef } from "../lib/types/index.ts";
+
+function derive(r: Reader): Outcome {
+  const g = gate(r, "title_spoken");
+  if (!g.open) return { detected: g.detected, events: [] };
+  const who = r.people("title_speaker_");
+  const unresolved = [...g.doubt];
+  if (who.yes.length !== 1)
+    unresolved.push(pick("references", who, who.yes.length ? "more than one speaker" : "speaker unclear"));
+  return {
+    detected: g.detected,
+    events: [draft("spokeEpTitle", { label: "Spoke Episode Title", confidence: g.detected, people: who.yes, unresolved })],
+  };
+}
 
 function build(c: Context) {
   const q = qset();
@@ -26,6 +40,7 @@ const title: SegmentDef = {
   maxSpan: 15,
   withContext: (ctx) => ({ start: ctx.title ? phrases([ctx.title]) : [] }),
   build,
+  derive,
 };
 
 export default title;

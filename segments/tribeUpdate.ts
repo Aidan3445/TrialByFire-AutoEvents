@@ -1,6 +1,41 @@
 import { noul, choice, keyOf, qset, withCanaries } from "./helpers.ts";
 import { phrases } from "../lib/match.ts";
-import type { Context, SegmentDef } from "../lib/types/index.ts";
+import { check, choiceLabel, draft, gate } from "../lib/derive.ts";
+import type { Context, Outcome, Reader, SegmentDef } from "../lib/types/index.ts";
+
+function derive(r: Reader, c: Context): Outcome {
+  const g = gate(r, "tribe_change_occurred");
+  if (!g.open) return { detected: g.detected, events: [] };
+  const kind = choiceLabel(r, "update_kind");
+  const base = { label: kind.label, labelConfidence: kind.confidence, confidence: g.detected };
+  // The S51 premiere drew buffs without saying who went where: hand over a picker
+  if (!r.yes("assignments_stated"))
+    return {
+      detected: g.detected,
+      events: [
+        draft("tribeUpdate", {
+          ...base,
+          tribes: c.tribes.filter((t) => r.yes(`tribe_exists_${keyOf(t)}`)),
+          unresolved: [...g.doubt, ...kind.unresolved, { field: "references", reason: "assignments not stated: pick members" }],
+        }),
+      ],
+    };
+  const members = c.tribes.map((t) => ({ tribe: t, people: r.people(`on_${keyOf(t)}_`).yes }));
+  const count = new Map<string, number>();
+  for (const m of members) for (const s of m.people) count.set(s.name, (count.get(s.name) ?? 0) + 1);
+  const twice = [...count].filter(([, n]) => n > 1).map(([name]) => name);
+  const missing = c.cast.filter((name) => !count.has(name));
+  return {
+    detected: g.detected,
+    events: members
+      .filter((m) => m.people.length)
+      .map((m) => draft("tribeUpdate", { ...base, tribes: [m.tribe], people: m.people, unresolved: [...g.doubt, ...kind.unresolved] })),
+    checks: [
+      check("nobody on two tribes", !twice.length, twice.join(", ") || "ok"),
+      check("every castaway on a tribe", !missing.length, missing.join(", ") || "ok"),
+    ],
+  };
+}
 
 const UPDATE_KINDS = {
   starting_tribes: "Starting Tribes",
@@ -65,6 +100,7 @@ const tribeUpdate: SegmentDef = {
   ]),
   maxSpan: 240,
   build,
+  derive,
   labels: { update_kind: UPDATE_KINDS },
 };
 

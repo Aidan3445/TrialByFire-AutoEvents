@@ -1,6 +1,27 @@
 import { noul, choice, keyOf, qset, withCanaries } from "./helpers.ts";
 import { phrases } from "../lib/match.ts";
-import type { Context, SegmentDef } from "../lib/types/index.ts";
+import { choiceLabel, draft, gate, pick } from "../lib/derive.ts";
+import type { Context, Outcome, Reader, SegmentDef } from "../lib/types/index.ts";
+
+function derive(r: Reader, c: Context): Outcome {
+  const g = gate(r, "returned_to_game");
+  if (!g.open) return { detected: g.detected, events: [] };
+  // Only eliminated castaways are asked, so a prior elimination holds by construction
+  const who = r.people("returned_", c.eliminated);
+  const kind = choiceLabel(r, "redemption_kind");
+  return {
+    detected: g.detected,
+    events: [
+      draft("redemption", {
+        label: kind.label,
+        labelConfidence: kind.confidence,
+        confidence: g.detected,
+        people: who.yes,
+        unresolved: [...g.doubt, ...kind.unresolved, ...(who.yes.length ? [] : [pick("references", who, "who returned")])],
+      }),
+    ],
+  };
+}
 
 const REDEMPTION_KINDS = {
   redemption_island: "Redemption",
@@ -46,6 +67,7 @@ const redemption: SegmentDef = {
   ]),
   maxSpan: 300,
   build,
+  derive,
   labels: { redemption_kind: REDEMPTION_KINDS },
 };
 

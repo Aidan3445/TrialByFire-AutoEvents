@@ -5,3 +5,5 @@ export type * from "./question.ts";
 export type * from "./match.ts";
 export type * from "./segment.ts";
 export type * from "./prompt.ts";
+export type * from "./jev.ts";
+export type * from "./derive.ts";

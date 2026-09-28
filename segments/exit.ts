@@ -1,6 +1,26 @@
 import { rx, noul, choice, keyOf, qset, withCanaries } from "./helpers.ts";
 import { phrases } from "../lib/match.ts";
-import type { Context, SegmentDef } from "../lib/types/index.ts";
+import { choiceLabel, draft, gate, pick } from "../lib/derive.ts";
+import type { Context, Outcome, Reader, SegmentDef } from "../lib/types/index.ts";
+
+function derive(r: Reader): Outcome {
+  const g = gate(r, "exit_occurred");
+  if (!g.open) return { detected: g.detected, events: [] };
+  const who = r.people("left_game_");
+  const kind = choiceLabel(r, "exit_kind");
+  return {
+    detected: g.detected,
+    events: [
+      draft("noVoteExit", {
+        label: kind.label,
+        labelConfidence: kind.confidence,
+        confidence: g.detected,
+        people: who.yes,
+        unresolved: [...g.doubt, ...kind.unresolved, ...(who.yes.length === 1 ? [] : [pick("references", who, "who left")])],
+      }),
+    ],
+  };
+}
 
 const EXIT_KINDS = { med_evac: "Med Evacuation", quit: "Quit", removed: "Removed" };
 
@@ -47,6 +67,7 @@ const exit: SegmentDef = {
   startNot: rx(["voted out", "(leave|leaving) (the game|tribal council) immediately"]),
   maxSpan: 300,
   build,
+  derive,
   labels: { exit_kind: EXIT_KINDS },
 };
 
