@@ -1,0 +1,17 @@
+{
+  "name": "system-one-event-prompting",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=23.6"
+  },
+  "scripts": {
+    "replay": "node lib/replay.ts",
+    "cue-server": "node lib/cueServer.ts",
+    "typecheck": "tsc"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.3",
+    "typescript": "^7.0.2"
+  }
+}

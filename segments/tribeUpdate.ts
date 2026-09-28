@@ -1,10 +1,18 @@
-import { noul, choice, keyOf, qset, withCanaries } from "./helpers.mjs";
-import { phrases } from "../lib/match.mjs";
+import { noul, choice, keyOf, qset, withCanaries } from "./helpers.ts";
+import { phrases } from "../lib/match.ts";
+import type { Context, SegmentDef } from "../lib/types/index.ts";
 
-function build(c) {
+const UPDATE_KINDS = {
+  starting_tribes: "Starting Tribes",
+  swap: "Tribe Swap",
+  new_tribes: "New Tribes",
+  merge: "Merge Tribe",
+};
+
+function build(c: Context) {
   const q = qset();
   q.add("tribe_change_occurred", noul("Castaways were assigned to new tribes in this excerpt."));
-  q.add("update_kind", choice("What kind of tribe change happened in this excerpt?", {
+  q.add("update_kind", choice<keyof typeof UPDATE_KINDS>("What kind of tribe change happened in this excerpt?", {
     starting_tribes: "castaways were placed into their first tribes at the start of the game",
     swap: "castaways were redistributed among tribes that already existed",
     new_tribes: "castaways were placed into newly created tribes",
@@ -26,7 +34,7 @@ function build(c) {
   return q;
 }
 
-export default {
+const tribeUpdate: SegmentDef = {
   id: "tribeUpdate",
   events: ["tribeUpdate"],
   start: phrases([
@@ -57,7 +65,7 @@ export default {
   ]),
   maxSpan: 240,
   build,
-  labels: {
-    update_kind: { starting_tribes: "Starting Tribes", swap: "Tribe Swap", new_tribes: "New Tribes", merge: "Merge Tribe" },
-  },
+  labels: { update_kind: UPDATE_KINDS },
 };
+
+export default tribeUpdate;

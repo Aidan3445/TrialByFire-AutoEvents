@@ -1,8 +1,9 @@
-import { noul, choice, keyOf, qset, withCanaries } from "./helpers.mjs";
-import { phrases } from "../lib/match.mjs";
-import { advantageCriteria, TRIBAL_ADVANTAGES, ADVANTAGE_LABELS } from "./advantages.mjs";
+import { noul, choice, keyOf, qset, withCanaries } from "./helpers.ts";
+import { advantageCriteria, TRIBAL_ADVANTAGES, ADVANTAGE_LABELS } from "./advantages.ts";
+import { phrases } from "../lib/match.ts";
+import type { Context, SegmentDef } from "../lib/types/index.ts";
 
-function build(c) {
+function build(c: Context) {
   const q = qset();
   q.add("is_tribal", noul(
     "This excerpt is a tribal council, where the host questions the castaways and votes are read aloud."
@@ -60,7 +61,7 @@ function build(c) {
   return q;
 }
 
-export default {
+const tribal: SegmentDef = {
   id: "tribal",
   events: ["elim", "advPlay", "badAdvPlay"],
   start: phrases([
@@ -96,3 +97,5 @@ export default {
     },
   ],
 };
+
+export default tribal;

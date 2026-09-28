@@ -3,8 +3,8 @@
  * pipeline one cue at a time, as if it were airing, and writes one prompt
  * file per released segment for manual playground runs.
  *
- *   node lib/replay.mjs cues/s51e1.jsonl
- *   node lib/replay.mjs imported/s44e12.txt --context contexts/s44e12.json
+ *   node lib/replay.ts cues/s51e1.jsonl
+ *   node lib/replay.ts imported/s44e12.txt --context contexts/s44e12.json
  *
  * Input: cueServer JSONL, or plain text with one cue per line (timing is
  * synthesised from word count).
@@ -17,24 +17,25 @@
 import { readFileSync, readdirSync, mkdirSync, writeFileSync, existsSync } from "fs";
 import { join, basename, dirname } from "path";
 import { fileURLToPath } from "url";
-import { readCueFile } from "./input.mjs";
-import { cleanAll } from "./cues.mjs";
-import { auditAnchors } from "./scanner.mjs";
-import { createPipeline } from "./pipeline.mjs";
-import { withDefaults } from "./context.mjs";
-import { segmentsFor } from "../segments/index.mjs";
+import { readCueFile } from "./input.ts";
+import { cleanAll } from "./cues.ts";
+import { auditAnchors } from "./scanner.ts";
+import { createPipeline } from "./pipeline.ts";
+import { withDefaults } from "./context.ts";
+import { segmentsFor } from "../segments/index.ts";
+import type { CancelEvent, CleanerStats, Context, Hit, Prompt, Segment } from "./types/index.ts";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 
 const args = process.argv.slice(2);
 const IN = args[0];
-const argOf = (f, d) => {
+const argOf = (f: string, d: string) => {
   const i = args.indexOf(f);
   return i >= 0 && args[i + 1] ? args[i + 1] : d;
 };
 
 if (!IN || IN.startsWith("--")) {
-  console.error("usage: node lib/replay.mjs <cues.jsonl|transcript.txt> [options]");
+  console.error("usage: node lib/replay.ts <cues.jsonl|transcript.txt> [options]");
   console.error("  --episode NAME   output file prefix (default: input file name)");
   console.error("  --context FILE   season context JSON (default: contexts/{episode}.json)");
   console.error("  --lead    N      seconds to include before start anchor (default: 20)");
@@ -46,9 +47,9 @@ if (!IN || IN.startsWith("--")) {
 const EPISODE = argOf("--episode", basename(IN).replace(/\.(jsonl|txt)$/, ""));
 const BUFFER = { lead: Number(argOf("--lead", "20")), tail: Number(argOf("--tail", "20")) };
 
-function loadContext() {
-  const explicit = argOf("--context", null);
-  const path = explicit ?? join(ROOT, "contexts", `${EPISODE}.json`);
+function loadContext(): Context {
+  const explicit = args.includes("--context");
+  const path = argOf("--context", join(ROOT, "contexts", `${EPISODE}.json`));
   if (!existsSync(path)) {
     if (explicit) {
       console.error(`context file not found: ${path}`);
@@ -63,10 +64,10 @@ function loadContext() {
 const ctx = loadContext();
 const defs = segmentsFor(ctx);
 const raw = readCueFile(IN);
-const at = (t) => `[${t.toFixed(0)}s]`;
-const hitLine = (h) => `"${h.phrase}" ${h.score.toFixed(2)}  ${at(h.time)} ${h.text.slice(0, 70)}`;
+const at = (t: number) => `[${t.toFixed(0)}s]`;
+const hitLine = (h: Hit) => `"${h.phrase}" ${h.score.toFixed(2)}  ${at(h.time)} ${h.text.slice(0, 70)}`;
 
-function logStats(stats) {
+function logStats(stats: CleanerStats) {
   console.log(`\nloaded ${stats.loaded} cues, ${stats.deduped} after scroll-repeat removal`);
   const { recap, preview } = stats;
   if (recap)
@@ -91,11 +92,11 @@ if (args.includes("--audit")) {
   process.exit(0);
 }
 
-function nextReplayDir(baseDir = ".") {
+function nextReplayDir(baseDir = "."): string {
   const existing = readdirSync(baseDir, { withFileTypes: true })
     .filter((d) => d.isDirectory())
     .map((d) => /^replay-(\d+)$/.exec(d.name))
-    .filter(Boolean)
+    .filter((m) => m !== null)
     .map((m) => parseInt(m[1], 10));
   const dir = join(baseDir, `replay-${existing.length ? Math.max(...existing) + 1 : 1}`);
   mkdirSync(dir, { recursive: true });
@@ -106,7 +107,7 @@ const replayDir = nextReplayDir();
 let n = 0;
 let cancelled = 0;
 
-function onSegment(seg, prompt) {
+function onSegment(seg: Segment, prompt: Prompt) {
   n++;
   const file = join(replayDir, `${EPISODE}p${n}.jsonl`);
   writeFileSync(
@@ -138,7 +139,7 @@ function onSegment(seg, prompt) {
   console.log(`     -> ${file}`);
 }
 
-function onCancel(e) {
+function onCancel(e: CancelEvent) {
   cancelled++;
   console.log(
     `  x  ${e.def.id.padEnd(12)} ${at(e.startTime)} "${e.start.phrase}" ${e.start.score.toFixed(2)} -- ${e.reason}`

@@ -1,7 +1,8 @@
-import { noul, keyOf, qset, withCanaries } from "./helpers.mjs";
-import { phrases } from "../lib/match.mjs";
+import { noul, keyOf, qset, withCanaries } from "./helpers.ts";
+import { phrases } from "../lib/match.ts";
+import type { Context, SegmentDef } from "../lib/types/index.ts";
 
-function build(c) {
+function build(c: Context) {
   const q = qset();
   q.add("notable_event", noul(
     "Something happened in this excerpt that a Survivor fantasy league would want recorded even though it awards no points — a journey, a summit, a condition imposed on a castaway, or a game twist."
@@ -23,7 +24,7 @@ function build(c) {
   return q;
 }
 
-export default {
+const journey: SegmentDef = {
   id: "journey",
   events: ["otherNotes"],
   start: phrases([
@@ -54,3 +55,5 @@ export default {
   maxSpan: 240,
   build,
 };
+
+export default journey;

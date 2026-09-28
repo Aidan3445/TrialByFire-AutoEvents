@@ -9,24 +9,55 @@
  * onSegment(segment, prompt).
  */
 
-import { createCleaner } from "./cues.mjs";
-import { createScanner } from "./scanner.mjs";
-import { segmentPrompt } from "./prompt.mjs";
+import { createCleaner } from "./cues.ts";
+import { createScanner } from "./scanner.ts";
+import { segmentPrompt } from "./prompt.ts";
+import type {
+  BufferOptions,
+  CancelEvent,
+  CleanerStats,
+  Context,
+  Cue,
+  Prompt,
+  ScanEvent,
+  Segment,
+  SegmentDef,
+} from "./types/index.ts";
 
-export function createPipeline({ defs, ctx, buffer = { lead: 20, tail: 20 }, onSegment, onCancel = () => {} }) {
+export interface PipelineOptions {
+  defs: SegmentDef[];
+  ctx: Context;
+  buffer?: BufferOptions;
+  onSegment(segment: Segment, prompt: Prompt): void;
+  onCancel?(event: CancelEvent): void;
+}
+
+export interface Pipeline {
+  push(cue: Cue): void;
+  finish(): void;
+  readonly stats: CleanerStats;
+}
+
+export function createPipeline({
+  defs,
+  ctx,
+  buffer = { lead: 20, tail: 20 },
+  onSegment,
+  onCancel = () => {},
+}: PipelineOptions): Pipeline {
   const cleaner = createCleaner();
   const scanner = createScanner(defs);
-  let pending = [];
+  let pending: Segment[] = [];
   let finished = false;
 
-  function handle(events) {
+  function handle(events: ScanEvent[]) {
     for (const e of events) {
       if (e.type === "segment") pending.push(e.segment);
       else onCancel(e);
     }
   }
 
-  function release(force) {
+  function release(force: boolean) {
     const aired = scanner.cues.at(-1)?.start ?? -Infinity;
     const ready = pending.filter((s) => force || aired >= s.endTime + buffer.tail);
     pending = pending.filter((s) => !ready.includes(s));
@@ -41,7 +72,7 @@ export function createPipeline({ defs, ctx, buffer = { lead: 20, tail: 20 }, onS
     release(true);
   }
 
-  function push(cue) {
+  function push(cue: Cue) {
     if (finished) return;
     for (const c of cleaner.push(cue)) handle(scanner.push(c));
     release(false);

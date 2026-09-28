@@ -12,12 +12,14 @@
  * "once again, immunity") confirms a false segment and cannot be cancelled.
  */
 
+import type { Phrase, Match } from "./types/index.ts";
+
 const SIMILARITY = 0.8;
 const MIN_FUZZY = 10;
 
-export const normalize = (s) => s.toLowerCase().replace(/[^a-z0-9]/g, "");
+export const normalize = (s: string): string => s.toLowerCase().replace(/[^a-z0-9]/g, "");
 
-export function phrases(list, { exact = false } = {}) {
+export function phrases(list: string[], { exact = false } = {}): Phrase[] {
   return list.map((text) => {
     const n = normalize(text);
     const k = exact || n.length < MIN_FUZZY ? 0 : Math.floor(n.length * (1 - SIMILARITY) + 1e-9);
@@ -30,7 +32,7 @@ export function phrases(list, { exact = false } = {}) {
  * or more than k if there is none within k. Ukkonen's cutoff only extends
  * rows that can still finish within k, so long cues stay cheap.
  */
-function distance(p, t, k) {
+function distance(p: string, t: string, k: number): number {
   const m = p.length;
   const d = new Int32Array(m + 1);
   for (let i = 0; i <= m; i++) d[i] = i;
@@ -53,8 +55,8 @@ function distance(p, t, k) {
 }
 
 /** Highest-scoring phrase found in normalized text, or null. */
-export function bestMatch(list, text) {
-  let hit = null;
+export function bestMatch(list: Phrase[], text: string): Match | null {
+  let hit: Match | null = null;
   for (const p of list) {
     let score = 0;
     if (text.includes(p.n)) score = 1;

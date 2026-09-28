@@ -1,7 +1,8 @@
-import { noul, keyOf, qset, withCanaries } from "./helpers.mjs";
-import { phrases } from "../lib/match.mjs";
+import { noul, keyOf, qset, withCanaries } from "./helpers.ts";
+import { phrases } from "../lib/match.ts";
+import type { Context, SegmentDef } from "../lib/types/index.ts";
 
-function build(c) {
+function build(c: Context) {
   const q = qset();
   const title = c.title ?? "{TITLE}";
   q.add("title_spoken", noul(
@@ -16,12 +17,15 @@ function build(c) {
 
 // Triggered by a near match of the episode title itself; the window is the
 // lead/tail buffer around the line
-export default {
+const title: SegmentDef = {
   id: "title",
   events: ["spokeEpTitle"],
+  start: [],
   // Titles run longer than one caption line
   lookahead: 2,
   maxSpan: 15,
   withContext: (ctx) => ({ start: ctx.title ? phrases([ctx.title]) : [] }),
   build,
 };
+
+export default title;

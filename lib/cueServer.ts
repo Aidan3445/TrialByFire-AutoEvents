@@ -2,21 +2,22 @@
  * Local cue receiver.
  *
  * Takes caption cues from the browser tap, dedupes them, persists to JSONL, and
- * serves a time range back as one state blob for the extractor 
+ * serves a time range back as one state blob for the extractor
  *
- *   node cueServer.mjs --out cues/s47e08.jsonl
+ *   node lib/cueServer.ts --out cues/s47e08.jsonl
  *
  *   POST /cue        {"cues": [ ... ]}        from the extension
  *   GET  /segment?start=1200&end=1500         -> assembled state text
  *   GET  /status                              -> counts, gaps, timeline health
  */
 
-import { createServer } from "node:http";
+import { createServer, type ServerResponse } from "node:http";
 import { appendFileSync, existsSync, mkdirSync, readFileSync } from "node:fs";
 import { dirname } from "node:path";
+import type { StoredCue, SuspectScore } from "./types/index.ts";
 
 const args = process.argv.slice(2);
-const argOf = (flag, fallback) => {
+const argOf = (flag: string, fallback: string) => {
   const i = args.indexOf(flag);
   return i >= 0 && args[i + 1] ? args[i + 1] : fallback;
 };
@@ -24,8 +25,8 @@ const argOf = (flag, fallback) => {
 const OUT = argOf("--out", "cues.jsonl");
 const PORT = Number(argOf("--port", "8000"));
 
-/** @type {Map<string, any>} key -> cue */
-const CUES = new Map();
+/** key -> cue */
+const CUES = new Map<string, StoredCue>();
 
 // The CBS player sometimes displays junk caption rows full of random special characters
 // they also usually last longer than a normal caption, and repeat themselves
@@ -34,10 +35,9 @@ const CLEAN = new Set(
 );
 const MAX_SANE_DURATION = 10;
 
-/** @returns {{score: number, reasons: string[]}} */
-export function suspectScore(cue) {
+export function suspectScore(cue: { text?: string; start?: number | null; end?: number | null }): SuspectScore {
   const text = cue.text ?? "";
-  const reasons = [];
+  const reasons: string[] = [];
   let score = 0;
 
   // Too many special chars
@@ -64,7 +64,7 @@ export function suspectScore(cue) {
   const toks = text.split(/\s+/).filter(Boolean);
   let best = 0;
   for (let n = 2; n <= Math.max(2, Math.floor(toks.length / 3)); n++) {
-    const counts = new Map();
+    const counts = new Map<string, number>();
     for (let i = 0; i + n <= toks.length; i++) {
       const gram = toks.slice(i, i + n).join(" ");
       counts.set(gram, (counts.get(gram) ?? 0) + 1);
@@ -79,8 +79,8 @@ export function suspectScore(cue) {
   return { score: Math.min(score, 1), reasons };
 }
 
-/** @returns {boolean} true if new */
-function record(cue) {
+/** true if new */
+function record(cue: StoredCue): boolean {
   const key = cue.key;
   if (!key || CUES.has(key)) return false;
   cue.received_at = new Date().toISOString();
@@ -98,7 +98,7 @@ function loadExisting() {
   for (const line of readFileSync(OUT, "utf8").split("\n")) {
     if (!line.trim()) continue;
     try {
-      const c = JSON.parse(line);
+      const c: StoredCue = JSON.parse(line);
       if (c.key) CUES.set(c.key, c);
     } catch {
       /* ignore */
@@ -106,14 +106,14 @@ function loadExisting() {
   }
 }
 
-const norm = (t) => (t ?? "").replace(/\s+/g, " ").trim().toUpperCase();
+const norm = (t: string | undefined) => (t ?? "").replace(/\s+/g, " ").trim().toUpperCase();
 
 // Remove "scroll" duplicates
 const DUP_WINDOW_S = 10;
 
-function markDuplicates(cues) {
-  let lastText = null;
-  let lastStart = null;
+function markDuplicates(cues: StoredCue[]): StoredCue[] {
+  let lastText: string | null = null;
+  let lastStart: number | null = null;
   for (const c of cues) {
     const t = norm(c.text);
     const near =
@@ -121,7 +121,7 @@ function markDuplicates(cues) {
     c.duplicate = Boolean(t && t === lastText && near);
     if (!c.duplicate) {
       lastText = t;
-      lastStart = c.start;
+      lastStart = c.start ?? null;
     }
   }
   return cues;
@@ -134,7 +134,7 @@ const ordered = () =>
     )
   );
 
-function segment(start, end, includeSuspect = false) {
+function segment(start: number, end: number, includeSuspect = false) {
   const inRange = ordered().filter(
     (c) => c.start != null && c.start >= start && c.start <= end
   );
@@ -170,7 +170,7 @@ function status() {
   const suspects = all.filter((c) => c.suspect);
   const duplicates = all.filter((c) => c.duplicate);
 
-  const gaps = [];
+  const gaps: { after_key: string; at: number; seconds: number }[] = [];
   for (let i = 0; i + 1 < cues.length; i++) {
     const a = cues[i];
     const b = cues[i + 1];
@@ -182,7 +182,7 @@ function status() {
   }
 
   // Sometimes ads come in on a separate timeline
-  const drift = [];
+  const drift: { key: string; delta: number }[] = [];
   for (const c of cues.slice(-50)) {
     if (c.media_time == null || c.start == null) continue;
     const d = Math.abs(c.media_time - c.start);
@@ -199,14 +199,14 @@ function status() {
       score: c.suspect_score,
       reasons: c.suspect_reasons,
     })),
-    span: cues.length ? [cues[0].start, cues.at(-1).end] : null,
+    span: cues.length ? [cues[0].start, cues[cues.length - 1].end] : null,
     gaps: gaps.slice(-10),
     timeline_drift: drift.slice(-5),
     out: OUT,
   };
 }
 
-function send(res, code, body) {
+function send(res: ServerResponse, code: number, body: unknown) {
   const raw = JSON.stringify(body);
   res.writeHead(code, {
     "Content-Type": "application/json",
@@ -218,7 +218,7 @@ function send(res, code, body) {
 }
 
 const server = createServer((req, res) => {
-  const url = new URL(req.url, `http://${req.headers.host}`);
+  const url = new URL(req.url ?? "/", `http://${req.headers.host}`);
   if (process.env.QUIET !== "1")
     console.log(`${req.method} ${url.pathname}${url.search}`);
 
@@ -235,7 +235,7 @@ const server = createServer((req, res) => {
     let body = "";
     req.on("data", (chunk) => (body += chunk));
     req.on("end", () => {
-      let payload;
+      let payload: { cues?: StoredCue[] };
       try {
         payload = JSON.parse(body || "{}");
       } catch {

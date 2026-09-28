@@ -1,7 +1,7 @@
 /**
  * Live segment detection, one cue at a time.
  *
- * A start trigger opens a candidate. Near misses are allowed (see match.mjs),
+ * A start trigger opens a candidate. Near misses are allowed (see match.ts),
  * so candidates are cheap and get cancelled when the cues that follow show
  * the trigger was not real: a segment with a require that never arrives
  * within maxSpan is cancelled. Segments without a require are confirmed by
@@ -15,24 +15,42 @@
  * j + lookahead has arrived.
  */
 
-import { bestMatch, normalize } from "./match.mjs";
+import { bestMatch, normalize } from "./match.ts";
+import type { Candidate, ClosedBy, Cue, Hit, Match, Phrase, ScanEvent, SegmentDef } from "./types/index.ts";
 
 const MERGE_GAP_S = 180;
 
+interface DefState {
+  def: SegmentDef;
+  open: Candidate[];
+  busyUntil: number;
+  /** Last cancelled candidate, kept so mergeIncomplete can fold it in. */
+  cancelled: (Candidate & { endTime: number }) | null;
+}
+
+export interface Scanner {
+  push(cue: Cue): ScanEvent[];
+  end(): ScanEvent[];
+  /** Every cue scanned so far, for building prompt windows. */
+  readonly cues: Cue[];
+}
+
 // Captions break mid-sentence ("First team" / "to finish wins reward."), so
 // anchors match across following cues and exclusions check both neighbours.
-const join = (cues, from, to) => cues.slice(Math.max(0, from), to + 1).map((c) => c.text).join(" ");
+const join = (cues: Cue[], from: number, to: number) =>
+  cues.slice(Math.max(0, from), to + 1).map((c) => c.text).join(" ");
 
-export function createScanner(defs) {
-  const cues = [];
-  const norm = [];
-  const lookahead = (def) => def.lookahead ?? 1;
+const lookahead = (def: SegmentDef) => def.lookahead ?? 1;
+
+export function createScanner(defs: SegmentDef[]): Scanner {
+  const cues: Cue[] = [];
+  const norm: string[] = [];
   const maxAhead = Math.max(1, ...defs.map(lookahead));
-  const states = defs.map((def) => ({ def, open: [], busyUntil: -1, cancelled: null }));
+  const states: DefState[] = defs.map((def) => ({ def, open: [], busyUntil: -1, cancelled: null }));
   let next = 0;
-  let events = [];
+  let events: ScanEvent[] = [];
 
-  function hitAt(list, not, def, j) {
+  function hitAt(list: Phrase[] | undefined, not: RegExp[] | undefined, def: SegmentDef, j: number): Hit | null {
     if (!list?.length) return null;
     const n = lookahead(def);
     const hit = bestMatch(list, norm.slice(j, j + n + 1).join(""));
@@ -40,16 +58,16 @@ export function createScanner(defs) {
     return { ...hit, time: cues[j].start, text: join(cues, j, j + n) };
   }
 
-  const remove = (s, c) => s.open.splice(s.open.indexOf(c), 1);
+  const remove = (s: DefState, c: Candidate) => s.open.splice(s.open.indexOf(c), 1);
 
   // The earliest confirmed candidate covers any opened inside its window
-  function absorbLater(s, c) {
+  function absorbLater(s: DefState, c: Candidate) {
     const later = s.open.filter((o) => o.startIdx > c.startIdx);
     for (const o of later) remove(s, o);
     c.mergedFrom += later.length;
   }
 
-  function close(s, c, endIdx, closedBy) {
+  function close(s: DefState, c: Candidate, endIdx: number, closedBy: ClosedBy) {
     const { def } = s;
     // Arrival and rules can sit on the far side of an ad break from the result
     if (def.mergeIncomplete && s.cancelled && c.startTime - s.cancelled.endTime <= MERGE_GAP_S) {
@@ -66,17 +84,18 @@ export function createScanner(defs) {
     });
   }
 
-  function cancel(s, c, endIdx, reason) {
+  function cancel(s: DefState, c: Candidate, endIdx: number, reason: string) {
     const endTime = cues[endIdx].end;
     const chained =
       s.def.mergeIncomplete && s.cancelled && c.startTime - s.cancelled.endTime <= MERGE_GAP_S;
-    s.cancelled = chained
-      ? { ...s.cancelled, endTime, mergedFrom: s.cancelled.mergedFrom + c.mergedFrom }
-      : { ...c, endTime };
+    s.cancelled =
+      chained && s.cancelled
+        ? { ...s.cancelled, endTime, mergedFrom: s.cancelled.mergedFrom + c.mergedFrom }
+        : { ...c, endTime };
     events.push({ type: "cancel", def: s.def, start: c.start, startTime: c.startTime, endTime, reason });
   }
 
-  function evaluate(j) {
+  function evaluate(j: number) {
     for (const s of states) {
       const { def } = s;
       for (const c of [...s.open]) {
@@ -93,7 +112,7 @@ export function createScanner(defs) {
           continue;
         }
         if (j > c.startIdx && def.end) {
-          const hit = hitAt(def.end, null, def, j);
+          const hit = hitAt(def.end, undefined, def, j);
           if (hit) {
             remove(s, c);
             close(s, { ...c, end: hit }, j, "end anchor");
@@ -109,7 +128,7 @@ export function createScanner(defs) {
       if (j <= s.busyUntil || !canOpen || sameTrigger) continue;
       const start = hitAt(def.start, def.startNot, def, j);
       if (!start) continue;
-      const c = { startIdx: j, startTime: cues[j].start, start, require: null, end: null, mergedFrom: 1 };
+      const c: Candidate = { startIdx: j, startTime: cues[j].start, start, require: null, end: null, mergedFrom: 1 };
       s.open.push(c);
       if (def.require) {
         c.require = hitAt(def.require, def.requireNot, def, j);
@@ -118,20 +137,20 @@ export function createScanner(defs) {
     }
   }
 
-  function drain() {
+  function drain(): ScanEvent[] {
     const out = events;
     events = [];
     return out;
   }
 
-  function push(cue) {
+  function push(cue: Cue): ScanEvent[] {
     cues.push(cue);
     norm.push(normalize(cue.text));
     while (next + maxAhead < cues.length) evaluate(next++);
     return drain();
   }
 
-  function end() {
+  function end(): ScanEvent[] {
     while (next < cues.length) evaluate(next++);
     const last = cues.length - 1;
     for (const s of states)
@@ -146,18 +165,31 @@ export function createScanner(defs) {
   return { push, end, cues };
 }
 
+export interface AuditHit extends Match {
+  kind: "start" | "require" | "end";
+  excluded: boolean;
+  cue: Cue;
+}
+
 /** Every anchor hit per definition over a complete cue list, for tuning. */
-export function auditAnchors(cues, defs) {
+export function auditAnchors(cues: Cue[], defs: SegmentDef[]): { id: string; hits: AuditHit[] }[] {
   const norm = cues.map((c) => normalize(c.text));
+  const kinds = [
+    ["start", "startNot"],
+    ["require", "requireNot"],
+    ["end", null],
+  ] as const;
   return defs.map((def) => {
-    const n = def.lookahead ?? 1;
-    const hits = [];
-    for (const [kind, not] of [["start", "startNot"], ["require", "requireNot"], ["end", null]]) {
-      if (!def[kind]?.length) continue;
+    const n = lookahead(def);
+    const hits: AuditHit[] = [];
+    for (const [kind, not] of kinds) {
+      const list = def[kind];
+      if (!list?.length) continue;
+      const exclusions = not ? def[not] : undefined;
       for (let j = 0; j < cues.length; j++) {
-        const hit = bestMatch(def[kind], norm.slice(j, j + n + 1).join(""));
+        const hit = bestMatch(list, norm.slice(j, j + n + 1).join(""));
         if (!hit) continue;
-        const excluded = Boolean(not && def[not]?.some((r) => r.test(join(cues, j - 1, j + 1))));
+        const excluded = Boolean(exclusions?.some((r) => r.test(join(cues, j - 1, j + 1))));
         hits.push({ kind, excluded, ...hit, cue: cues[j] });
       }
     }

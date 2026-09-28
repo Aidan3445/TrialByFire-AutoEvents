@@ -1,8 +1,10 @@
 import fs from 'fs';
 
+type TemplateData = Record<string, string[]>;
+
 // Templates include placeholders in the form of {key},
 // data comes in as an object with key value lists, e.g. { key: [value1, value2, ...], ... }
-function populateTemplate(template, data) {
+function populateTemplate(template: string, data: TemplateData): string {
   const keys = Object.keys(data);
   const values = Object.values(data);
 
@@ -41,8 +43,8 @@ function populateTemplate(template, data) {
   return `${populatedTemplates.join('\n')}`;
 }
 
-function cartesianProduct(arrays) {
-  return arrays.reduce((acc, curr) => {
+function cartesianProduct(arrays: string[][]): string[][] {
+  return arrays.reduce<string[][]>((acc, curr) => {
     return acc.flatMap(a => curr.map(b => [...a, b]));
   }, [[]]);
 }
@@ -57,7 +59,7 @@ if (process.argv[1] === new URL(import.meta.url).pathname) {
     console.log("Enter data as JSON { \"key\": [values], ... } (Ctrl+D to end):");
     const dataInput = fs.readFileSync(0, 'utf-8');
 
-    let data;
+    let data: TemplateData;
     try {
       data = JSON.parse(dataInput);
     } catch (e) {

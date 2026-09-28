@@ -1,7 +1,8 @@
-import { noul, keyOf, qset, withCanaries } from "./helpers.mjs";
-import { phrases } from "../lib/match.mjs";
+import { noul, keyOf, qset, withCanaries } from "./helpers.ts";
+import { phrases } from "../lib/match.ts";
+import type { Context, SegmentDef } from "../lib/types/index.ts";
 
-function build(c) {
+function build(c: Context) {
   const q = qset();
   q.add("is_winner_reveal", noul("The host reveals the winner of the season in this excerpt."));
   for (const name of withCanaries(c.cast, c))
@@ -11,7 +12,7 @@ function build(c) {
   return q;
 }
 
-export default {
+const finale: SegmentDef = {
   id: "finale",
   events: ["soleSurvivor"],
   start: phrases(["winner of survivor", "the votes are in", "the votes have been cast"]),
@@ -19,3 +20,5 @@ export default {
   maxSpan: 600,
   build,
 };
+
+export default finale;

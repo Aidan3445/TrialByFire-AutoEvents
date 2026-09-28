@@ -4,15 +4,26 @@
  */
 
 import { readFileSync } from "fs";
+import type { Cue, StoredCue } from "./types/index.ts";
 
 // Measured on s51e1 speech; only used to synthesise timing for .txt input
 const WORDS_PER_SECOND = 2.5;
 
-function fromJsonl(lines) {
-  const out = [];
+// Other capture tools name the fields differently
+type JsonlRecord = Partial<StoredCue> & {
+  caption?: string;
+  content?: string;
+  starttime?: number;
+  startTime?: number;
+  endtime?: number;
+  endTime?: number;
+};
+
+function fromJsonl(lines: string[]): Cue[] {
+  const out: Cue[] = [];
   for (const line of lines) {
     if (!line.trim()) continue;
-    let o;
+    let o: JsonlRecord;
     try {
       o = JSON.parse(line);
     } catch {
@@ -32,8 +43,8 @@ function fromJsonl(lines) {
   return out;
 }
 
-function fromText(lines) {
-  const out = [];
+function fromText(lines: string[]): Cue[] {
+  const out: Cue[] = [];
   let t = 0;
   for (const line of lines) {
     const text = line.replace(/\s+/g, " ").trim();
@@ -54,7 +65,7 @@ function fromText(lines) {
 }
 
 /** cueServer JSONL, or plain text with one cue per line, in airing order. */
-export function readCueFile(path) {
+export function readCueFile(path: string): Cue[] {
   const lines = readFileSync(path, "utf8").split("\n");
   const cues = path.endsWith(".txt") ? fromText(lines) : fromJsonl(lines);
   return cues.sort((a, b) => a.start - b.start || a.seq - b.seq);

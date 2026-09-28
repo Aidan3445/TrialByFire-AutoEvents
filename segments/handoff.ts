@@ -1,7 +1,8 @@
-import { noul, keyOf, qset, withCanaries } from "./helpers.mjs";
-import { phrases } from "../lib/match.mjs";
+import { noul, keyOf, qset, withCanaries } from "./helpers.ts";
+import { phrases } from "../lib/match.ts";
+import type { Context, SegmentDef } from "../lib/types/index.ts";
 
-function build(c) {
+function build(c: Context) {
   const q = qset();
   q.add("advantage_handed_off", noul(
     "One castaway gives an idol or advantage to another castaway to keep in this excerpt. Playing an idol on someone's behalf at tribal council does not count. Offering it without handing it over does not count."
@@ -14,7 +15,7 @@ function build(c) {
   return q;
 }
 
-export default {
+const handoff: SegmentDef = {
   id: "handoff",
   events: ["otherNotes"],
   start: phrases([
@@ -47,3 +48,5 @@ export default {
     { "gave_{giver}_to_{receiver}": noul("{giver} gave an idol or advantage to {receiver}.") },
   ],
 };
+
+export default handoff;

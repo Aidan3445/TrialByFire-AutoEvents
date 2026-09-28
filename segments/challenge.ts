@@ -1,11 +1,17 @@
-import { rx, noul, choice, keyOf, cap, qset, withCanaries, RULES_TALK } from "./helpers.mjs";
-import { phrases } from "../lib/match.mjs";
+import { rx, noul, choice, keyOf, cap, qset, withCanaries, RULES_TALK } from "./helpers.ts";
+import { phrases } from "../lib/match.ts";
+import type { Context, SegmentDef } from "../lib/types/index.ts";
 
 const COLOURS = ["blue", "red", "yellow", "green", "orange", "purple", "black", "white", "pink"];
 
-const coloursIn = (text) => COLOURS.filter((c) => new RegExp(`\\b${c}\\b`, "i").test(text));
+const coloursIn = (text: string) => COLOURS.filter((c) => new RegExp(`\\b${c}\\b`, "i").test(text));
 
-function build(c, info) {
+/** One-off team names found in the segment text. */
+interface ChallengeInfo {
+  colours: string[];
+}
+
+function build(c: Context, info: ChallengeInfo) {
   const q = qset();
   q.add("is_challenge", noul(
     "This excerpt is a challenge being run at the challenge area. Tribal council, camp conversation, and confessionals are not challenges."
@@ -30,7 +36,7 @@ function build(c, info) {
     no_teams: "castaways do not compete as tribes or teams",
   }));
 
-  const placement = (label, k, gate) => {
+  const placement = (label: string, k: string, gate?: string) => {
     q.add(`first_${k}`, noul(
       `${label} finished in first place in this challenge. Competing well, leading partway through, or nearly winning does not count.`
     ), gate);
@@ -68,7 +74,7 @@ function build(c, info) {
   return q;
 }
 
-export default {
+const challenge: SegmentDef<ChallengeInfo> = {
   id: "challenge",
   events: ["indivWin", "indivReward", "tribe1st", "tribe2nd"],
   start: phrases([
@@ -120,3 +126,5 @@ export default {
   inspect: (text) => ({ colours: coloursIn(text) }),
   placeholder: { colours: ["{label}"] },
 };
+
+export default challenge;

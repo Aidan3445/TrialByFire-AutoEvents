@@ -1,7 +1,8 @@
-import { rx, noul, keyOf, qset, withCanaries, RULES_TALK } from "./helpers.mjs";
-import { phrases } from "../lib/match.mjs";
+import { rx, noul, keyOf, qset, withCanaries, RULES_TALK } from "./helpers.ts";
+import { phrases } from "../lib/match.ts";
+import type { Context, SegmentDef } from "../lib/types/index.ts";
 
-function build(c) {
+function build(c: Context) {
   const q = qset();
   q.add("fire_challenge_occurred", noul(
     "A fire-making challenge was held in this excerpt. Practising fire at camp, or talking about fire-making, does not count."
@@ -16,7 +17,7 @@ function build(c) {
   return q;
 }
 
-export default {
+const fire: SegmentDef = {
   id: "fire",
   events: ["fireWin", "noVoteExit"],
   start: phrases([
@@ -40,3 +41,5 @@ export default {
   maxSpan: 900,
   build,
 };
+
+export default fire;

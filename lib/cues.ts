@@ -7,7 +7,8 @@
  *   cleaner.done        -> true once the "next time on" preview starts
  */
 
-import { suspectScore } from "./cueServer.mjs";
+import { suspectScore } from "./cueServer.ts";
+import type { Cue, CleanerStats } from "./types/index.ts";
 
 const REPEAT_WINDOW_S = 10;
 const RECAP_SEARCH_S = 600;
@@ -16,18 +17,25 @@ const RECAP_FALLBACK_S = 180;
 // "next time on" earlier than this is not the closing preview
 const PREVIEW_MIN_S = 1800;
 
-export function createCleaner() {
-  const stats = { loaded: 0, deduped: 0, recap: null, preview: null };
-  let lastText = null;
-  let lastStart = null;
-  let t0 = null;
-  let recap = "searching"; // searching | holding | done
-  let held = [];
-  let from = null;
+export interface Cleaner {
+  push(cue: Cue): Cue[];
+  end(): Cue[];
+  readonly stats: CleanerStats;
+  readonly done: boolean;
+}
+
+export function createCleaner(): Cleaner {
+  const stats: CleanerStats = { loaded: 0, deduped: 0, recap: null, preview: null };
+  let lastText: string | null = null;
+  let lastStart: number | null = null;
+  let t0: number | null = null;
+  let recap: "searching" | "holding" | "done" = "searching";
+  let held: Cue[] = [];
+  let from = 0;
   let done = false;
 
   // No closing "the tribe has spoken" in time: drop only the opening stretch
-  function releaseFallback() {
+  function releaseFallback(): Cue[] {
     const drop = held.filter((c) => c.start - from <= RECAP_FALLBACK_S);
     stats.recap = {
       from,
@@ -43,7 +51,7 @@ export function createCleaner() {
 
   // "Previously on Survivor" replays last week's vote, which would otherwise
   // produce a tribal and an elimination for the wrong episode
-  function stripRecap(c) {
+  function stripRecap(c: Cue, t0: number): Cue[] {
     if (recap === "searching") {
       if (c.start - t0 > RECAP_SEARCH_S) recap = "done";
       else if (/previously on survivor/i.test(c.text)) {
@@ -62,7 +70,7 @@ export function createCleaner() {
     return c.start - from > RECAP_MAX_S ? releaseFallback() : [];
   }
 
-  function push(cue) {
+  function push(cue: Cue): Cue[] {
     if (done) return [];
     // Synthetic timing would trip the duration signal, so score on text only
     if (suspectScore(cue.synthetic ? { text: cue.text } : cue).score >= 0.5) return [];
@@ -83,10 +91,10 @@ export function createCleaner() {
       stats.preview = { from: cue.start };
       return recap === "holding" ? releaseFallback() : [];
     }
-    return stripRecap(cue);
+    return stripRecap(cue, t0);
   }
 
-  function end() {
+  function end(): Cue[] {
     return recap === "holding" ? releaseFallback() : [];
   }
 
@@ -101,7 +109,7 @@ export function createCleaner() {
 }
 
 /** Clean a complete episode in one go. */
-export function cleanAll(raw) {
+export function cleanAll(raw: Cue[]): { cues: Cue[]; stats: CleanerStats } {
   const cleaner = createCleaner();
   const cues = [...raw.flatMap((c) => cleaner.push(c)), ...cleaner.end()];
   return { cues, stats: cleaner.stats };

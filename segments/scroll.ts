@@ -1,8 +1,9 @@
-import { rx, noul, choice, keyOf, qset, withCanaries } from "./helpers.mjs";
-import { phrases } from "../lib/match.mjs";
-import { ADVANTAGES, advantageCriteria, ADVANTAGE_LABELS } from "./advantages.mjs";
+import { rx, noul, choice, keyOf, qset, withCanaries } from "./helpers.ts";
+import { ADVANTAGES, advantageCriteria, ADVANTAGE_LABELS, type AdvantageKey } from "./advantages.ts";
+import { phrases } from "../lib/match.ts";
+import type { Context, SegmentDef } from "../lib/types/index.ts";
 
-function build(c) {
+function build(c: Context) {
   const q = qset();
   q.add("is_scroll_reading", noul(
     "Someone reads aloud the text of a note, scroll, or parchment describing an idol or advantage in this excerpt. The host confirming an idol played at tribal council does not count. A castaway recalling a note from an earlier episode does not count."
@@ -14,7 +15,7 @@ function build(c) {
     "The castaway who found the note kept the idol or advantage. Leaving it behind or putting it back does not count."
   ), "is_scroll_reading");
   q.add("advantage_type", choice("What kind of advantage is described?", {
-    ...advantageCriteria(Object.keys(ADVANTAGES)),
+    ...advantageCriteria(Object.keys(ADVANTAGES) as AdvantageKey[]),
     shot_in_the_dark: "a shot in the dark",
     clue_only: "only a clue or directions toward an advantage, not the advantage itself",
   }), "is_scroll_reading");
@@ -25,7 +26,7 @@ function build(c) {
   return q;
 }
 
-export default {
+const scroll: SegmentDef = {
   id: "scroll",
   events: ["advFound", "otherNotes"],
   start: phrases([
@@ -59,3 +60,5 @@ export default {
   build,
   labels: { advantage_type: ADVANTAGE_LABELS },
 };
+
+export default scroll;

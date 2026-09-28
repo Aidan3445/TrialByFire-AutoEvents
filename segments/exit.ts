@@ -1,12 +1,15 @@
-import { rx, noul, choice, keyOf, qset, withCanaries } from "./helpers.mjs";
-import { phrases } from "../lib/match.mjs";
+import { rx, noul, choice, keyOf, qset, withCanaries } from "./helpers.ts";
+import { phrases } from "../lib/match.ts";
+import type { Context, SegmentDef } from "../lib/types/index.ts";
 
-function build(c) {
+const EXIT_KINDS = { med_evac: "Med Evacuation", quit: "Quit", removed: "Removed" };
+
+function build(c: Context) {
   const q = qset();
   q.add("exit_occurred", noul(
     "A castaway left the game in this excerpt for a reason other than being voted out — a medical evacuation, quitting, or being removed. Being examined by medical and continuing to play does not count. Talking about quitting without leaving does not count."
   ));
-  q.add("exit_kind", choice("Why did the castaway leave the game?", {
+  q.add("exit_kind", choice<keyof typeof EXIT_KINDS>("Why did the castaway leave the game?", {
     med_evac: "they were removed for medical reasons",
     quit: "they chose to quit",
     removed: "production removed them for their conduct",
@@ -18,7 +21,7 @@ function build(c) {
   return q;
 }
 
-export default {
+const exit: SegmentDef = {
   id: "exit",
   events: ["noVoteExit"],
   start: phrases([
@@ -44,5 +47,7 @@ export default {
   startNot: rx(["voted out", "(leave|leaving) (the game|tribal council) immediately"]),
   maxSpan: 300,
   build,
-  labels: { exit_kind: { med_evac: "Med Evacuation", quit: "Quit", removed: "Removed" } },
+  labels: { exit_kind: EXIT_KINDS },
 };
+
+export default exit;

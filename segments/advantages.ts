@@ -13,16 +13,18 @@ export const ADVANTAGES = {
     "an advantage that costs the holder something, such as their vote, until they complete a task",
   ],
   novel: ["Advantage", "an advantage that does not match any of the kinds listed"],
-};
+} as const satisfies Record<string, readonly [label: string, description: string]>;
 
-export const TRIBAL_ADVANTAGES = [
+export type AdvantageKey = keyof typeof ADVANTAGES;
+
+export const TRIBAL_ADVANTAGES: AdvantageKey[] = [
   "idol", "extra_vote", "steal_a_vote", "block_a_vote", "safety_without_power",
   "idol_nullifier", "knowledge_is_power", "novel",
 ];
 
-export const advantageCriteria = (keys) =>
-  Object.fromEntries(keys.map((k) => [k, ADVANTAGES[k][1]]));
+export const advantageCriteria = <K extends AdvantageKey>(keys: K[]): Record<K, string> =>
+  Object.fromEntries(keys.map((k) => [k, ADVANTAGES[k][1]])) as Record<K, string>;
 
 export const ADVANTAGE_LABELS = Object.fromEntries(
   Object.entries(ADVANTAGES).map(([k, [label]]) => [k, label])
-);
+) as Record<AdvantageKey, string>;
