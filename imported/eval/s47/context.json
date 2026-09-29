@@ -1,0 +1,2775 @@
+{
+  "host": "Jeff Probst",
+  "contestants": [
+    "Jon Lovett",
+    "Terran Foster",
+    "Aysha Welch",
+    "Kishan Patel",
+    "Anika Dhar",
+    "Jerome Cooney",
+    "Tiyana Hallums",
+    "Sierra Wright",
+    "Solomon Yi",
+    "Gabe Ortis",
+    "Kyle Ostwald",
+    "Caroline Vidmar",
+    "Andy Rueda",
+    "Genevieve Mushaluk",
+    "Teeny Chirichillo",
+    "Sue Smey",
+    "Sam Phalen",
+    "Rachel LaMont"
+  ],
+  "tribes": [
+    "Gata",
+    "Lavo",
+    "Tuku",
+    "Beka"
+  ],
+  "episodes": [
+    {
+      "num": 1,
+      "title": "One Glorious and Perfect Episode"
+    },
+    {
+      "num": 2,
+      "title": "Epic Boss Girl Move"
+    },
+    {
+      "num": 3,
+      "title": "Belly of the Beast"
+    },
+    {
+      "num": 4,
+      "title": "Is That Blood in Your Hair?"
+    },
+    {
+      "num": 5,
+      "title": "The Scales Be Tippin"
+    },
+    {
+      "num": 6,
+      "title": "Feel the FOMO"
+    },
+    {
+      "num": 7,
+      "title": "Our Pickle on Blast"
+    },
+    {
+      "num": 8,
+      "title": "He's All That"
+    },
+    {
+      "num": 9,
+      "title": "Nightmare Fuel"
+    },
+    {
+      "num": 10,
+      "title": "Loyal to the Soil"
+    },
+    {
+      "num": 11,
+      "title": "Flipping the Win Switch"
+    },
+    {
+      "num": 12,
+      "title": "Operation: Italy"
+    },
+    {
+      "num": 13,
+      "title": "Bob and Weave"
+    },
+    {
+      "num": 14,
+      "title": "The Last Stand"
+    }
+  ],
+  "canaries": [
+    "Ozzy",
+    "Parvati",
+    "Wendell"
+  ],
+  "seasonsData": [
+    {
+      "season": {
+        "seasonId": 8,
+        "name": "Survivor 47",
+        "premiereDate": "2024-09-19T01:00:00.000Z",
+        "finaleDate": null,
+        "created_at": "2025-09-01T03:24:40.168Z",
+        "updated_at": "2026-02-25T20:34:29.712Z"
+      },
+      "castaways": [
+        {
+          "castawayId": 1,
+          "fullName": "Andy Rueda",
+          "shortName": "Andy",
+          "age": 31,
+          "hometown": "Buffalo, NY",
+          "residence": "Brooklyn, NY",
+          "occupation": "AI Research Assistant",
+          "imageUrl": "https://static.wikia.nocookie.net/survivor/images/c/c4/S47_andy_t.png/revision/latest/scale-to-width-down/70?cb=20240904222758",
+          "seasonId": 8,
+          "previouslyOn": [],
+          "created_at": "2025-09-01T03:24:40.826Z",
+          "updated_at": "2026-02-25T20:34:42.255Z",
+          "tribe": {
+            "name": "Gata",
+            "color": "#fcde2d"
+          },
+          "eliminatedEpisode": 13
+        },
+        {
+          "castawayId": 6,
+          "fullName": "Anika Dhar",
+          "shortName": "Anika",
+          "age": 26,
+          "hometown": "Santa Rosa, CA",
+          "residence": "Los Angeles, CA",
+          "occupation": "Marketing Manager",
+          "imageUrl": "https://static.wikia.nocookie.net/survivor/images/a/a9/S47_anika_t.png/revision/latest/scale-to-width-down/70?cb=20240904222759",
+          "seasonId": 8,
+          "previouslyOn": [],
+          "created_at": "2025-09-01T03:24:40.826Z",
+          "updated_at": "2026-02-25T20:34:36.611Z",
+          "tribe": {
+            "name": "Gata",
+            "color": "#fcde2d"
+          },
+          "eliminatedEpisode": 5
+        },
+        {
+          "castawayId": 4,
+          "fullName": "Aysha Welch",
+          "shortName": "Aysha",
+          "age": 32,
+          "hometown": "DeSoto, TX",
+          "residence": "Houston, TX",
+          "occupation": "IT Consultant",
+          "imageUrl": "https://static.wikia.nocookie.net/survivor/images/e/eb/S47_aysha_t.png/revision/latest/scale-to-width-down/70?cb=20240904222759",
+          "seasonId": 8,
+          "previouslyOn": [],
+          "created_at": "2025-09-01T03:24:40.826Z",
+          "updated_at": "2026-02-25T20:34:35.203Z",
+          "tribe": {
+            "name": "Lavo",
+            "color": "#fe4e53"
+          },
+          "eliminatedEpisode": 3
+        },
+        {
+          "castawayId": 5,
+          "fullName": "Caroline Vidmar",
+          "shortName": "Caroline",
+          "age": 27,
+          "hometown": "Palos Verdes, CA",
+          "residence": "Chicago, IL",
+          "occupation": "Strategy Consultant",
+          "imageUrl": "https://static.wikia.nocookie.net/survivor/images/1/11/S47_caroline_t.png/revision/latest/scale-to-width-down/70?cb=20240904222759",
+          "seasonId": 8,
+          "previouslyOn": [],
+          "created_at": "2025-09-01T03:24:40.826Z",
+          "updated_at": "2026-02-25T20:34:41.536Z",
+          "tribe": {
+            "name": "Tuku",
+            "color": "#0094d9"
+          },
+          "eliminatedEpisode": 12
+        },
+        {
+          "castawayId": 11,
+          "fullName": "Gabe Ortis",
+          "shortName": "Gabe",
+          "age": 26,
+          "hometown": "Baltimore, MD",
+          "residence": "Baltimore, MD",
+          "occupation": "Radio Show Host",
+          "imageUrl": "https://static.wikia.nocookie.net/survivor/images/0/01/S47_gabe_t.png/revision/latest/scale-to-width-down/70?cb=20240904222759",
+          "seasonId": 8,
+          "previouslyOn": [],
+          "created_at": "2025-09-01T03:24:40.826Z",
+          "updated_at": "2026-02-25T20:34:40.188Z",
+          "tribe": {
+            "name": "Tuku",
+            "color": "#0094d9"
+          },
+          "eliminatedEpisode": 10
+        },
+        {
+          "castawayId": 15,
+          "fullName": "Genevieve Mushaluk",
+          "shortName": "Genevieve",
+          "age": 32,
+          "hometown": "Winnipeg, Manitoba",
+          "residence": "Winnipeg, MB",
+          "occupation": "Corporate Lawyer",
+          "imageUrl": "https://static.wikia.nocookie.net/survivor/images/2/2a/S47_genevieve_t.png/revision/latest/scale-to-width-down/70?cb=20240904222759",
+          "seasonId": 8,
+          "previouslyOn": [],
+          "created_at": "2025-09-01T03:24:40.826Z",
+          "updated_at": "2026-02-25T20:34:43.007Z",
+          "tribe": {
+            "name": "Lavo",
+            "color": "#fe4e53"
+          },
+          "eliminatedEpisode": 13
+        },
+        {
+          "castawayId": 233,
+          "fullName": "Jeff Probst",
+          "shortName": "Probst",
+          "age": 63,
+          "hometown": "Wichita, KA",
+          "residence": "Los Angeles, CA",
+          "occupation": "Host",
+          "imageUrl": "https://static.wikia.nocookie.net/survivor/images/a/ae/S46_Jeff.jpg/revision/latest/scale-to-width-down/128?cb=20240205181033",
+          "seasonId": null,
+          "previouslyOn": [],
+          "created_at": "2025-09-01T03:24:40.826Z",
+          "updated_at": "2025-09-01T03:24:40.857Z",
+          "tribe": null,
+          "eliminatedEpisode": null
+        },
+        {
+          "castawayId": 2,
+          "fullName": "Jon Lovett",
+          "shortName": "Jon",
+          "age": 41,
+          "hometown": "Long Island, NY",
+          "residence": "Los Angeles, CA",
+          "occupation": "Podcast Host",
+          "imageUrl": "https://static.wikia.nocookie.net/survivor/images/6/60/S47_jon_t.png/revision/latest/scale-to-width-down/70?cb=20240904222759",
+          "seasonId": 8,
+          "previouslyOn": [],
+          "created_at": "2025-09-01T03:24:40.826Z",
+          "updated_at": "2026-02-25T20:34:32.805Z",
+          "tribe": {
+            "name": "Gata",
+            "color": "#fcde2d"
+          },
+          "eliminatedEpisode": 1
+        },
+        {
+          "castawayId": 3,
+          "fullName": "Kishan Patel",
+          "shortName": "Kishan",
+          "age": 27,
+          "hometown": "Fullerton, CA",
+          "residence": "San Francisco, CA",
+          "occupation": "ER Doctor",
+          "imageUrl": "https://static.wikia.nocookie.net/survivor/images/5/5b/S47_kishan_t.png/revision/latest/scale-to-width-down/70?cb=20240904222759",
+          "seasonId": 8,
+          "previouslyOn": [],
+          "created_at": "2025-09-01T03:24:40.826Z",
+          "updated_at": "2026-02-25T20:34:35.939Z",
+          "tribe": {
+            "name": "Lavo",
+            "color": "#fe4e53"
+          },
+          "eliminatedEpisode": 4
+        },
+        {
+          "castawayId": 7,
+          "fullName": "Kyle Ostwald",
+          "shortName": "Kyle",
+          "age": 31,
+          "hometown": "Cheboygan, MI",
+          "residence": "Cheboygan, MI",
+          "occupation": "Construction Worker",
+          "imageUrl": "https://static.wikia.nocookie.net/survivor/images/9/99/S47_kyle_t.png/revision/latest/scale-to-width-down/70?cb=20240904222759",
+          "seasonId": 8,
+          "previouslyOn": [],
+          "created_at": "2025-09-01T03:24:40.826Z",
+          "updated_at": "2026-02-25T20:34:40.781Z",
+          "tribe": {
+            "name": "Tuku",
+            "color": "#0094d9"
+          },
+          "eliminatedEpisode": 11
+        },
+        {
+          "castawayId": 8,
+          "fullName": "Rachel LaMont",
+          "shortName": "Rachel",
+          "age": 34,
+          "hometown": "Dexter, MI",
+          "residence": "Southfield, MI",
+          "occupation": "Graphic Designer",
+          "imageUrl": "https://static.wikia.nocookie.net/survivor/images/e/ee/S47_rachel_t.png/revision/latest/scale-to-width-down/70?cb=20240904222759",
+          "seasonId": 8,
+          "previouslyOn": [],
+          "created_at": "2025-09-01T03:24:40.826Z",
+          "updated_at": "2026-02-25T20:34:45.610Z",
+          "tribe": {
+            "name": "Gata",
+            "color": "#fcde2d"
+          },
+          "eliminatedEpisode": null
+        },
+        {
+          "castawayId": 9,
+          "fullName": "Rome Cooney",
+          "shortName": "Rome",
+          "age": 30,
+          "hometown": "Corvallis, OR",
+          "residence": "Phoenix, AZ",
+          "occupation": "E-Sports Commentator",
+          "imageUrl": "https://static.wikia.nocookie.net/survivor/images/5/58/S47_rome_t.png/revision/latest/scale-to-width-down/70?cb=20240904222759",
+          "seasonId": 8,
+          "previouslyOn": [],
+          "created_at": "2025-09-01T03:24:40.826Z",
+          "updated_at": "2026-02-25T20:34:37.297Z",
+          "tribe": {
+            "name": "Lavo",
+            "color": "#fe4e53"
+          },
+          "eliminatedEpisode": 6
+        },
+        {
+          "castawayId": 10,
+          "fullName": "Sam Phalen",
+          "shortName": "Sam",
+          "age": 24,
+          "hometown": " Schaumburg, IL",
+          "residence": "Nashville, TN",
+          "occupation": "Sports Reporter",
+          "imageUrl": "https://static.wikia.nocookie.net/survivor/images/d/dc/S47_sam_t.png/revision/latest/scale-to-width-down/70?cb=20240904222759",
+          "seasonId": 8,
+          "previouslyOn": [],
+          "created_at": "2025-09-01T03:24:40.826Z",
+          "updated_at": "2026-02-25T20:34:44.979Z",
+          "tribe": {
+            "name": "Gata",
+            "color": "#fcde2d"
+          },
+          "eliminatedEpisode": null
+        },
+        {
+          "castawayId": 12,
+          "fullName": "Sierra Wright",
+          "shortName": "Sierra",
+          "age": 26,
+          "hometown": "Wilmington, DE",
+          "residence": "Phoenixville, PA",
+          "occupation": "Nurse",
+          "imageUrl": "https://static.wikia.nocookie.net/survivor/images/3/30/S47_sierra_t.png/revision/latest/scale-to-width-down/70?cb=20240904222759",
+          "seasonId": 8,
+          "previouslyOn": [],
+          "created_at": "2025-09-01T03:24:40.826Z",
+          "updated_at": "2026-02-25T20:34:38.717Z",
+          "tribe": {
+            "name": "Gata",
+            "color": "#fcde2d"
+          },
+          "eliminatedEpisode": 8
+        },
+        {
+          "castawayId": 13,
+          "fullName": "Solomon Yi",
+          "shortName": "Sol",
+          "age": 42,
+          "hometown": "Del City, OK",
+          "residence": "Norwalk, CT",
+          "occupation": "Medical Device Sales",
+          "imageUrl": "https://static.wikia.nocookie.net/survivor/images/c/c8/S47_sol_t.png/revision/latest/scale-to-width-down/70?cb=20240904222759",
+          "seasonId": 8,
+          "previouslyOn": [],
+          "created_at": "2025-09-01T03:24:40.826Z",
+          "updated_at": "2026-02-25T20:34:39.409Z",
+          "tribe": {
+            "name": "Lavo",
+            "color": "#fe4e53"
+          },
+          "eliminatedEpisode": 9
+        },
+        {
+          "castawayId": 14,
+          "fullName": "Sue Smey",
+          "shortName": "Sue",
+          "age": 58,
+          "hometown": "Kirkwood, NY",
+          "residence": "Putnam Valley, NY",
+          "occupation": "Flight School Owner",
+          "imageUrl": "https://static.wikia.nocookie.net/survivor/images/c/cf/S47_sue_t.png/revision/latest/scale-to-width-down/70?cb=20240904222759",
+          "seasonId": 8,
+          "previouslyOn": [],
+          "created_at": "2025-09-01T03:24:40.826Z",
+          "updated_at": "2026-02-25T20:34:44.383Z",
+          "tribe": {
+            "name": "Tuku",
+            "color": "#0094d9"
+          },
+          "eliminatedEpisode": null
+        },
+        {
+          "castawayId": 16,
+          "fullName": "Teeny Chirichillo",
+          "shortName": "Teeny",
+          "age": 23,
+          "hometown": "Manahawkin, NJ",
+          "residence": "Manahawkin, NJ",
+          "occupation": "Freelance Writer",
+          "imageUrl": "https://static.wikia.nocookie.net/survivor/images/f/fc/S47_teeny_t.png/revision/latest/scale-to-width-down/70?cb=20240904222759",
+          "seasonId": 8,
+          "previouslyOn": [],
+          "created_at": "2025-09-01T03:24:40.826Z",
+          "updated_at": "2026-02-25T20:34:43.690Z",
+          "tribe": {
+            "name": "Lavo",
+            "color": "#fe4e53"
+          },
+          "eliminatedEpisode": 14
+        },
+        {
+          "castawayId": 18,
+          "fullName": "Terran Foster",
+          "shortName": "TK",
+          "age": 31,
+          "hometown": "Prince George’s County, MD",
+          "residence": "Upper Marlboro, MD",
+          "occupation": "Athlete Marketing Manager",
+          "imageUrl": "https://static.wikia.nocookie.net/survivor/images/9/9a/S47_tk_t.png/revision/latest/scale-to-width-down/70?cb=20240904222759",
+          "seasonId": 8,
+          "previouslyOn": [],
+          "created_at": "2025-09-01T03:24:40.826Z",
+          "updated_at": "2026-02-25T20:34:34.394Z",
+          "tribe": {
+            "name": "Tuku",
+            "color": "#0094d9"
+          },
+          "eliminatedEpisode": 2
+        },
+        {
+          "castawayId": 17,
+          "fullName": "Tiyana Hallums",
+          "shortName": "Tiyana",
+          "age": 27,
+          "hometown": "Aiea, Hawaii",
+          "residence": "Aiea, HI",
+          "occupation": "Flight Attendant",
+          "imageUrl": "https://static.wikia.nocookie.net/survivor/images/5/5d/S47_tiyana_t.png/revision/latest/scale-to-width-down/70?cb=20240904222759",
+          "seasonId": 8,
+          "previouslyOn": [],
+          "created_at": "2025-09-01T03:24:40.826Z",
+          "updated_at": "2026-02-25T20:34:38.089Z",
+          "tribe": {
+            "name": "Tuku",
+            "color": "#0094d9"
+          },
+          "eliminatedEpisode": 7
+        }
+      ],
+      "tribes": [
+        {
+          "tribeId": 1,
+          "tribeName": "Gata",
+          "tribeColor": "#fcde2d",
+          "seasonId": 8,
+          "created_at": "2025-09-01T03:24:40.105Z",
+          "updated_at": "2026-02-25T20:34:30.576Z"
+        },
+        {
+          "tribeId": 2,
+          "tribeName": "Lavo",
+          "tribeColor": "#fe4e53",
+          "seasonId": 8,
+          "created_at": "2025-09-01T03:24:40.105Z",
+          "updated_at": "2026-02-25T20:34:31.096Z"
+        },
+        {
+          "tribeId": 3,
+          "tribeName": "Tuku",
+          "tribeColor": "#0094d9",
+          "seasonId": 8,
+          "created_at": "2025-09-01T03:24:40.105Z",
+          "updated_at": "2026-02-25T20:34:31.568Z"
+        },
+        {
+          "tribeId": 29,
+          "tribeName": "Beka",
+          "tribeColor": "#a46bc2",
+          "seasonId": 8,
+          "created_at": "2025-09-01T03:24:40.105Z",
+          "updated_at": "2026-02-25T20:34:32.265Z"
+        }
+      ],
+      "baseEvents": {
+        "1": {
+          "1": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 1,
+            "episodeId": 42,
+            "eventId": 1,
+            "eventName": "tribeUpdate",
+            "label": "Starting Tribes",
+            "notes": [
+              "Gata"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 6
+              },
+              {
+                "type": "Castaway",
+                "id": 2
+              },
+              {
+                "type": "Castaway",
+                "id": 12
+              },
+              {
+                "type": "Tribe",
+                "id": 1
+              },
+              {
+                "type": "Castaway",
+                "id": 8
+              },
+              {
+                "type": "Castaway",
+                "id": 10
+              },
+              {
+                "type": "Castaway",
+                "id": 1
+              }
+            ]
+          },
+          "2": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 1,
+            "episodeId": 42,
+            "eventId": 2,
+            "eventName": "tribeUpdate",
+            "label": "Starting Tribes",
+            "notes": [
+              "Lavo"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 15
+              },
+              {
+                "type": "Castaway",
+                "id": 4
+              },
+              {
+                "type": "Castaway",
+                "id": 16
+              },
+              {
+                "type": "Castaway",
+                "id": 9
+              },
+              {
+                "type": "Castaway",
+                "id": 13
+              },
+              {
+                "type": "Castaway",
+                "id": 3
+              },
+              {
+                "type": "Tribe",
+                "id": 2
+              }
+            ]
+          },
+          "3": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 1,
+            "episodeId": 42,
+            "eventId": 3,
+            "eventName": "tribeUpdate",
+            "label": "Starting Tribes",
+            "notes": [
+              "Tuku"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 7
+              },
+              {
+                "type": "Castaway",
+                "id": 17
+              },
+              {
+                "type": "Tribe",
+                "id": 3
+              },
+              {
+                "type": "Castaway",
+                "id": 14
+              },
+              {
+                "type": "Castaway",
+                "id": 11
+              },
+              {
+                "type": "Castaway",
+                "id": 5
+              },
+              {
+                "type": "Castaway",
+                "id": 18
+              }
+            ]
+          },
+          "519": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 1,
+            "episodeId": 42,
+            "eventId": 519,
+            "eventName": "tribe1st",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Tribe",
+                "id": 1
+              }
+            ]
+          },
+          "520": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 1,
+            "episodeId": 42,
+            "eventId": 520,
+            "eventName": "tribe2nd",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Tribe",
+                "id": 3
+              }
+            ]
+          },
+          "521": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 1,
+            "episodeId": 42,
+            "eventId": 521,
+            "eventName": "advFound",
+            "label": "",
+            "notes": [
+              "Took the 3-tribal advantage"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 11
+              }
+            ]
+          },
+          "522": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 1,
+            "episodeId": 42,
+            "eventId": 522,
+            "eventName": "tribe1st",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Tribe",
+                "id": 2
+              }
+            ]
+          },
+          "523": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 1,
+            "episodeId": 42,
+            "eventId": 523,
+            "eventName": "tribe2nd",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Tribe",
+                "id": 3
+              }
+            ]
+          },
+          "524": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 1,
+            "episodeId": 42,
+            "eventId": 524,
+            "eventName": "elim",
+            "label": "",
+            "notes": [
+              "Blindside at first tribal",
+              "Andy ended up with 0 votes"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 2
+              }
+            ]
+          },
+          "526": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 1,
+            "episodeId": 42,
+            "eventId": 526,
+            "eventName": "spokeEpTitle",
+            "label": "",
+            "notes": [
+              "Too true"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 2
+              }
+            ]
+          }
+        },
+        "2": {
+          "528": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 2,
+            "episodeId": 43,
+            "eventId": 528,
+            "eventName": "advFound",
+            "label": "",
+            "notes": [
+              "Took 1st beware",
+              "Idol good for 1 tribal"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 9
+              }
+            ]
+          },
+          "529": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 2,
+            "episodeId": 43,
+            "eventId": 529,
+            "eventName": "advFound",
+            "label": "",
+            "notes": [
+              "Found it after Andy didn't take",
+              "Took the 1-tribal idol"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 10
+              }
+            ]
+          },
+          "530": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 2,
+            "episodeId": 43,
+            "eventId": 530,
+            "eventName": "tribe2nd",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Tribe",
+                "id": 2
+              }
+            ]
+          },
+          "531": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 2,
+            "episodeId": 43,
+            "eventId": 531,
+            "eventName": "tribe1st",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Tribe",
+                "id": 1
+              }
+            ]
+          },
+          "532": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 2,
+            "episodeId": 43,
+            "eventId": 532,
+            "eventName": "elim",
+            "label": "",
+            "notes": [
+              "Blindsided"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 18
+              }
+            ]
+          },
+          "533": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 2,
+            "episodeId": 43,
+            "eventId": 533,
+            "eventName": "badAdvPlay",
+            "label": "",
+            "notes": [
+              "Didn't need to play it :("
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 11
+              }
+            ]
+          },
+          "534": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 2,
+            "episodeId": 43,
+            "eventId": 534,
+            "eventName": "spokeEpTitle",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 14
+              }
+            ]
+          }
+        },
+        "3": {
+          "535": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 3,
+            "episodeId": 72,
+            "eventId": 535,
+            "eventName": "advFound",
+            "label": "",
+            "notes": [
+              "Of course Rome is the only one to get it"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 9
+              }
+            ]
+          },
+          "549": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 3,
+            "episodeId": 72,
+            "eventId": 549,
+            "eventName": "tribe1st",
+            "label": "",
+            "notes": [
+              "Andy struggled at the start but they came back"
+            ],
+            "references": [
+              {
+                "type": "Tribe",
+                "id": 1
+              }
+            ]
+          },
+          "550": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 3,
+            "episodeId": 72,
+            "eventId": 550,
+            "eventName": "tribe2nd",
+            "label": "",
+            "notes": [
+              "Early lead but fell behind on the puzzle"
+            ],
+            "references": [
+              {
+                "type": "Tribe",
+                "id": 3
+              }
+            ]
+          },
+          "557": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 3,
+            "episodeId": 72,
+            "eventId": 557,
+            "eventName": "otherNotes",
+            "label": "",
+            "notes": [
+              "Blew it on the balance beam"
+            ],
+            "references": [
+              {
+                "type": "Tribe",
+                "id": 2
+              }
+            ]
+          },
+          "558": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 3,
+            "episodeId": 72,
+            "eventId": 558,
+            "eventName": "otherNotes",
+            "label": "",
+            "notes": [
+              "After the challenge Rome doubles down on his lie"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 9
+              }
+            ]
+          },
+          "559": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 3,
+            "episodeId": 72,
+            "eventId": 559,
+            "eventName": "elim",
+            "label": "",
+            "notes": [
+              "The vote switched from Sol"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 4
+              }
+            ]
+          }
+        },
+        "4": {
+          "560": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 4,
+            "episodeId": 74,
+            "eventId": 560,
+            "eventName": "otherNotes",
+            "label": "",
+            "notes": [
+              "Flopped on the puzzle"
+            ],
+            "references": [
+              {
+                "type": "Tribe",
+                "id": 2
+              }
+            ]
+          },
+          "561": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 4,
+            "episodeId": 74,
+            "eventId": 561,
+            "eventName": "tribe2nd",
+            "label": "",
+            "notes": [
+              "Very close challenge until the puzzle where lavo flopped giving them an easy second place"
+            ],
+            "references": [
+              {
+                "type": "Tribe",
+                "id": 3
+              }
+            ]
+          },
+          "562": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 4,
+            "episodeId": 74,
+            "eventId": 562,
+            "eventName": "tribe1st",
+            "label": "",
+            "notes": [
+              "Very close challenge until the puzzle where they ran away with it"
+            ],
+            "references": [
+              {
+                "type": "Tribe",
+                "id": 1
+              }
+            ]
+          },
+          "563": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 4,
+            "episodeId": 74,
+            "eventId": 563,
+            "eventName": "spokeEpTitle",
+            "label": "",
+            "notes": [
+              "When finding sue after her beware advantage"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 17
+              }
+            ]
+          },
+          "564": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 4,
+            "episodeId": 74,
+            "eventId": 564,
+            "eventName": "otherNotes",
+            "label": "",
+            "notes": [
+              "Rome stole Kishan's vote"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 3
+              }
+            ]
+          },
+          "565": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 4,
+            "episodeId": 74,
+            "eventId": 565,
+            "eventName": "advPlay",
+            "label": "",
+            "notes": [
+              "Stole Kishan's vote"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 9
+              }
+            ]
+          },
+          "566": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 4,
+            "episodeId": 74,
+            "eventId": 566,
+            "eventName": "elim",
+            "label": "",
+            "notes": [
+              "Genevieve flipped the vote"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 3
+              }
+            ]
+          }
+        },
+        "5": {
+          "567": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 5,
+            "episodeId": 76,
+            "eventId": 567,
+            "eventName": "otherNotes",
+            "label": "",
+            "notes": [
+              "Randomly drawn to blue team",
+              "Struggled with freeing the ladder but nearly caught up at the end"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 1
+              },
+              {
+                "type": "Castaway",
+                "id": 12
+              },
+              {
+                "type": "Castaway",
+                "id": 15
+              },
+              {
+                "type": "Castaway",
+                "id": 11
+              },
+              {
+                "type": "Castaway",
+                "id": 9
+              },
+              {
+                "type": "Castaway",
+                "id": 13
+              },
+              {
+                "type": "Castaway",
+                "id": 6
+              }
+            ]
+          },
+          "568": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 5,
+            "episodeId": 76,
+            "eventId": 568,
+            "eventName": "tribe1st",
+            "label": "",
+            "notes": [
+              "Randomly drawn to yellow team",
+              "Early lead"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 16
+              },
+              {
+                "type": "Castaway",
+                "id": 14
+              },
+              {
+                "type": "Castaway",
+                "id": 7
+              },
+              {
+                "type": "Castaway",
+                "id": 17
+              },
+              {
+                "type": "Castaway",
+                "id": 5
+              },
+              {
+                "type": "Castaway",
+                "id": 8
+              },
+              {
+                "type": "Castaway",
+                "id": 10
+              }
+            ]
+          },
+          "569": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 5,
+            "episodeId": 76,
+            "eventId": 569,
+            "eventName": "spokeEpTitle",
+            "label": "",
+            "notes": [
+              "While debating over Rome's utility"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 15
+              }
+            ]
+          },
+          "570": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 5,
+            "episodeId": 76,
+            "eventId": 570,
+            "eventName": "otherNotes",
+            "label": "",
+            "notes": [
+              "They get 18 eggs for 3 chickens"
+            ],
+            "references": [
+              {
+                "type": "Tribe",
+                "id": 1
+              }
+            ]
+          },
+          "571": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 5,
+            "episodeId": 76,
+            "eventId": 571,
+            "eventName": "tribe1st",
+            "label": "",
+            "notes": [
+              "Held their lead from the start"
+            ],
+            "references": [
+              {
+                "type": "Tribe",
+                "id": 3
+              }
+            ]
+          },
+          "572": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 5,
+            "episodeId": 76,
+            "eventId": 572,
+            "eventName": "tribe2nd",
+            "label": "",
+            "notes": [
+              "Struggled at the very end but clinched it out before Gata could get to the mat"
+            ],
+            "references": [
+              {
+                "type": "Tribe",
+                "id": 2
+              }
+            ]
+          },
+          "573": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 5,
+            "episodeId": 76,
+            "eventId": 573,
+            "eventName": "elim",
+            "label": "",
+            "notes": [
+              "BLINDSIDEEEEEEEEEE"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 6
+              }
+            ]
+          },
+          "574": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 5,
+            "episodeId": 76,
+            "eventId": 574,
+            "eventName": "otherNotes",
+            "label": "",
+            "notes": [
+              "Andy's master plan worked to keep Anika and Rachel out of the loop"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 8
+              },
+              {
+                "type": "Castaway",
+                "id": 6
+              },
+              {
+                "type": "Castaway",
+                "id": 1
+              }
+            ]
+          }
+        },
+        "6": {
+          "575": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 6,
+            "episodeId": 79,
+            "eventId": 575,
+            "eventName": "advFound",
+            "label": "",
+            "notes": [
+              "Swam for the buoy"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 15
+              }
+            ]
+          },
+          "576": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 6,
+            "episodeId": 79,
+            "eventId": 576,
+            "eventName": "tribe1st",
+            "label": "",
+            "notes": [
+              "Yellow team",
+              "The first stage of the immunity challenge"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 8
+              },
+              {
+                "type": "Castaway",
+                "id": 7
+              },
+              {
+                "type": "Castaway",
+                "id": 12
+              },
+              {
+                "type": "Castaway",
+                "id": 14
+              },
+              {
+                "type": "Castaway",
+                "id": 16
+              },
+              {
+                "type": "Castaway",
+                "id": 10
+              }
+            ]
+          },
+          "577": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 6,
+            "episodeId": 79,
+            "eventId": 577,
+            "eventName": "indivWin",
+            "label": "",
+            "notes": [
+              "First individual immunity and first member of the merge tribe",
+              "Epic battle at the end between him and sue"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 7
+              }
+            ]
+          },
+          "578": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 6,
+            "episodeId": 79,
+            "eventId": 578,
+            "eventName": "spokeEpTitle",
+            "label": "",
+            "notes": [
+              "Last word at tribal"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 1
+              }
+            ]
+          },
+          "579": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 6,
+            "episodeId": 79,
+            "eventId": 579,
+            "eventName": "elim",
+            "label": "",
+            "notes": [
+              "Blindsided silly"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 9
+              }
+            ]
+          },
+          "580": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 6,
+            "episodeId": 79,
+            "eventId": 580,
+            "eventName": "badAdvPlay",
+            "label": "",
+            "notes": [
+              "They played the idol on teeny to get the target that the amulet brings off their back"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 5
+              },
+              {
+                "type": "Castaway",
+                "id": 1
+              },
+              {
+                "type": "Castaway",
+                "id": 16
+              }
+            ]
+          }
+        },
+        "7": {
+          "581": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 7,
+            "episodeId": 80,
+            "eventId": 581,
+            "eventName": "tribeUpdate",
+            "label": "",
+            "notes": [
+              "Beka tribe"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 15
+              },
+              {
+                "type": "Castaway",
+                "id": 8
+              },
+              {
+                "type": "Castaway",
+                "id": 10
+              },
+              {
+                "type": "Castaway",
+                "id": 1
+              },
+              {
+                "type": "Castaway",
+                "id": 12
+              },
+              {
+                "type": "Castaway",
+                "id": 13
+              },
+              {
+                "type": "Castaway",
+                "id": 16
+              },
+              {
+                "type": "Castaway",
+                "id": 14
+              },
+              {
+                "type": "Castaway",
+                "id": 11
+              },
+              {
+                "type": "Castaway",
+                "id": 7
+              },
+              {
+                "type": "Castaway",
+                "id": 5
+              },
+              {
+                "type": "Castaway",
+                "id": 17
+              },
+              {
+                "type": "Tribe",
+                "id": 29
+              }
+            ]
+          },
+          "582": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 7,
+            "episodeId": 80,
+            "eventId": 582,
+            "eventName": "indivWin",
+            "label": "",
+            "notes": [
+              "Genevieve and Teeny both outlasted everyone an won immunity for the entire yellow team"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 15
+              },
+              {
+                "type": "Castaway",
+                "id": 16
+              }
+            ]
+          },
+          "583": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 7,
+            "episodeId": 80,
+            "eventId": 583,
+            "eventName": "indivReward",
+            "label": "",
+            "notes": [
+              "Outlasted the blue team and won immunity for themselves"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 7
+              }
+            ]
+          },
+          "584": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 7,
+            "episodeId": 80,
+            "eventId": 584,
+            "eventName": "advFound",
+            "label": "",
+            "notes": [
+              "Found an advantage at the sanctuary",
+              "He gives either a 'Block a vote' or 'Safety without power'"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 13
+              }
+            ]
+          },
+          "585": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 7,
+            "episodeId": 80,
+            "eventId": 585,
+            "eventName": "spokeEpTitle",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 17
+              }
+            ]
+          },
+          "586": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 7,
+            "episodeId": 80,
+            "eventId": 586,
+            "eventName": "otherNotes",
+            "label": "",
+            "notes": [
+              "Saved by a mystery angel (Sol) who gave her safety without power"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 8
+              }
+            ]
+          },
+          "587": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 7,
+            "episodeId": 80,
+            "eventId": 587,
+            "eventName": "elim",
+            "label": "",
+            "notes": [
+              "In the aftermath of Sol's gift to Rachel"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 17
+              }
+            ]
+          }
+        },
+        "8": {
+          "588": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 8,
+            "episodeId": 81,
+            "eventId": 588,
+            "eventName": "otherNotes",
+            "label": "",
+            "notes": [
+              "Lost his vote by having the most cash ($160) after the last item"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 10
+              }
+            ]
+          },
+          "589": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 8,
+            "episodeId": 81,
+            "eventId": 589,
+            "eventName": "advFound",
+            "label": "",
+            "notes": [
+              "Got a clue in her fries to an idol sewn into the tent's tarp",
+              "She cut it out while the whole tribe sat under their shelter"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 8
+              }
+            ]
+          },
+          "590": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 8,
+            "episodeId": 81,
+            "eventId": 590,
+            "eventName": "indivWin",
+            "label": "",
+            "notes": [
+              "One man and one woman won, Kyle and Sue"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 14
+              },
+              {
+                "type": "Castaway",
+                "id": 7
+              }
+            ]
+          },
+          "591": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 8,
+            "episodeId": 81,
+            "eventId": 591,
+            "eventName": "otherNotes",
+            "label": "",
+            "notes": [
+              "Shot in the dark: NOT SAFE",
+              "Used the shot in the dark to gauge if she should play her idol."
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 8
+              }
+            ]
+          },
+          "592": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 8,
+            "episodeId": 81,
+            "eventId": 592,
+            "eventName": "elim",
+            "label": "",
+            "notes": [
+              "After a tied first vote between Sierra and Sam"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 12
+              }
+            ]
+          },
+          "593": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 8,
+            "episodeId": 81,
+            "eventId": 593,
+            "eventName": "spokeEpTitle",
+            "label": "",
+            "notes": [
+              "Technically he said 'She's all that'"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 1
+              }
+            ]
+          }
+        },
+        "9": {
+          "595": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 9,
+            "episodeId": 83,
+            "eventId": 595,
+            "eventName": "indivWin",
+            "label": "",
+            "notes": [
+              "Showdown with Kyle at the end"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 11
+              }
+            ]
+          },
+          "596": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 9,
+            "episodeId": 83,
+            "eventId": 596,
+            "eventName": "otherNotes",
+            "label": "",
+            "notes": [
+              "As the first pairs to lose the challenge they lose their votes and go on a journey for a chance to earn it back"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 5
+              },
+              {
+                "type": "Castaway",
+                "id": 1
+              },
+              {
+                "type": "Castaway",
+                "id": 10
+              },
+              {
+                "type": "Castaway",
+                "id": 8
+              }
+            ]
+          },
+          "597": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 9,
+            "episodeId": 83,
+            "eventId": 597,
+            "eventName": "spokeEpTitle",
+            "label": "",
+            "notes": [
+              "The journey is his nightmare fuel"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 1
+              }
+            ]
+          },
+          "598": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 9,
+            "episodeId": 83,
+            "eventId": 598,
+            "eventName": "otherNotes",
+            "label": "",
+            "notes": [
+              "They need to stack cards in a tower whoever knocks it down loses their vote"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 1
+              },
+              {
+                "type": "Castaway",
+                "id": 5
+              },
+              {
+                "type": "Castaway",
+                "id": 10
+              },
+              {
+                "type": "Castaway",
+                "id": 8
+              }
+            ]
+          },
+          "599": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 9,
+            "episodeId": 83,
+            "eventId": 599,
+            "eventName": "otherNotes",
+            "label": "",
+            "notes": [
+              "Knocked the tower down and lost her vote"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 5
+              }
+            ]
+          },
+          "600": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 9,
+            "episodeId": 83,
+            "eventId": 600,
+            "eventName": "elim",
+            "label": "",
+            "notes": [
+              "He tried to save himself with chaos but it didn't work out"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 13
+              }
+            ]
+          }
+        },
+        "10": {
+          "602": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 10,
+            "episodeId": 85,
+            "eventId": 602,
+            "eventName": "spokeEpTitle",
+            "label": "",
+            "notes": [
+              "His 4th title!"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 1
+              }
+            ]
+          },
+          "603": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 10,
+            "episodeId": 85,
+            "eventId": 603,
+            "eventName": "indivReward",
+            "label": "",
+            "notes": [
+              "Held the lead the entire time"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 7
+              },
+              {
+                "type": "Castaway",
+                "id": 10
+              },
+              {
+                "type": "Castaway",
+                "id": 8
+              }
+            ]
+          },
+          "604": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 10,
+            "episodeId": 85,
+            "eventId": 604,
+            "eventName": "indivWin",
+            "label": "",
+            "notes": [
+              "Number 4!"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 7
+              }
+            ]
+          },
+          "605": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 10,
+            "episodeId": 85,
+            "eventId": 605,
+            "eventName": "elim",
+            "label": "",
+            "notes": [
+              "Choice between him and Genevieve"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 11
+              }
+            ]
+          }
+        },
+        "11": {
+          "606": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 11,
+            "episodeId": 84,
+            "eventId": 606,
+            "eventName": "otherNotes",
+            "label": "",
+            "notes": [
+              "Boat arrives at camp for a journey, they draw rocks and Rachel wins"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 8
+              }
+            ]
+          },
+          "607": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 11,
+            "episodeId": 84,
+            "eventId": 607,
+            "eventName": "advFound",
+            "label": "",
+            "notes": [
+              "Tower of Hanoi style puzzle for an block a vote advantage",
+              "Solved it with seconds to spare!"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 8
+              }
+            ]
+          },
+          "608": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 11,
+            "episodeId": 84,
+            "eventId": 608,
+            "eventName": "indivWin",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 8
+              }
+            ]
+          },
+          "609": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 11,
+            "episodeId": 84,
+            "eventId": 609,
+            "eventName": "spokeEpTitle",
+            "label": "",
+            "notes": [
+              "5th title this season!"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 1
+              }
+            ]
+          },
+          "610": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 11,
+            "episodeId": 84,
+            "eventId": 610,
+            "eventName": "elim",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 7
+              }
+            ]
+          }
+        },
+        "12": {
+          "611": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 12,
+            "episodeId": 87,
+            "eventId": 611,
+            "eventName": "otherNotes",
+            "label": "",
+            "notes": [
+              "Sam won reward and brought Andy and Genevieve to the reward with letters from home"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 10
+              },
+              {
+                "type": "Castaway",
+                "id": 1
+              },
+              {
+                "type": "Castaway",
+                "id": 15
+              }
+            ]
+          },
+          "612": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 12,
+            "episodeId": 87,
+            "eventId": 612,
+            "eventName": "indivReward",
+            "label": "",
+            "notes": [
+              "Huge comeback and a tight finish at the end"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 10
+              }
+            ]
+          },
+          "613": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 12,
+            "episodeId": 87,
+            "eventId": 613,
+            "eventName": "spokeEpTitle",
+            "label": "",
+            "notes": [
+              "HE CAN'T BE STOPPED!"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 1
+              }
+            ]
+          },
+          "614": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 12,
+            "episodeId": 87,
+            "eventId": 614,
+            "eventName": "otherNotes",
+            "label": "",
+            "notes": [
+              "Operation Italy is in motion"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 15
+              },
+              {
+                "type": "Castaway",
+                "id": 10
+              },
+              {
+                "type": "Castaway",
+                "id": 1
+              }
+            ]
+          },
+          "615": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 12,
+            "episodeId": 87,
+            "eventId": 615,
+            "eventName": "indivWin",
+            "label": "",
+            "notes": [
+              "She was the only one with any balls locked in when she won!"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 8
+              }
+            ]
+          },
+          "616": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 12,
+            "episodeId": 87,
+            "eventId": 616,
+            "eventName": "elim",
+            "label": "",
+            "notes": [
+              "Operation Italy pivots to Caroline after Rachel's win and shocks the tribe"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 5
+              }
+            ]
+          }
+        },
+        "13": {
+          "617": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 13,
+            "episodeId": 88,
+            "eventId": 617,
+            "eventName": "indivWin",
+            "label": "",
+            "notes": [
+              "She chose Teeny and Sue to go to the sanctuary"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 15
+              }
+            ]
+          },
+          "618": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 13,
+            "episodeId": 88,
+            "eventId": 618,
+            "eventName": "otherNotes",
+            "label": "",
+            "notes": [
+              "They got a little drunk and Teeny spilled the beans on Genevieve's \"idol\"",
+              "Sue keeps Rachel's idol a secret"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 14
+              },
+              {
+                "type": "Castaway",
+                "id": 16
+              },
+              {
+                "type": "Castaway",
+                "id": 15
+              }
+            ]
+          },
+          "619": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 13,
+            "episodeId": 88,
+            "eventId": 619,
+            "eventName": "advPlay",
+            "label": "",
+            "notes": [
+              "Played her idol on herself!"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 8
+              }
+            ]
+          },
+          "620": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 13,
+            "episodeId": 88,
+            "eventId": 620,
+            "eventName": "elim",
+            "label": "",
+            "notes": [
+              "IDOLED OUT"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 1
+              }
+            ]
+          },
+          "621": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 13,
+            "episodeId": 88,
+            "eventId": 621,
+            "eventName": "otherNotes",
+            "label": "",
+            "notes": [
+              "Used her block a vote on Sam but it was not needed since she was playing her idol (No points +/- since it was expiring but had no effect)"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 8
+              }
+            ]
+          },
+          "622": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 13,
+            "episodeId": 88,
+            "eventId": 622,
+            "eventName": "indivWin",
+            "label": "",
+            "notes": [
+              "Her 3rd individual immunity!"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 8
+              }
+            ]
+          },
+          "623": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 13,
+            "episodeId": 88,
+            "eventId": 623,
+            "eventName": "otherNotes",
+            "label": "",
+            "notes": [
+              "Sam tells Teeny about Genevieve's fake idol"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 15
+              },
+              {
+                "type": "Castaway",
+                "id": 16
+              },
+              {
+                "type": "Castaway",
+                "id": 10
+              }
+            ]
+          },
+          "624": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 13,
+            "episodeId": 88,
+            "eventId": 624,
+            "eventName": "badAdvPlay",
+            "label": "",
+            "notes": [
+              "Sue played her idol on herself for no reason whatsoever"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 14
+              }
+            ]
+          },
+          "625": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 13,
+            "episodeId": 88,
+            "eventId": 625,
+            "eventName": "elim",
+            "label": "",
+            "notes": [
+              "RIP PRICELINE QUEEN"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 15
+              }
+            ]
+          }
+        },
+        "14": {
+          "626": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 14,
+            "episodeId": 90,
+            "eventId": 626,
+            "eventName": "indivWin",
+            "label": "",
+            "notes": [
+              "The final immunity challenge of the season",
+              "Has tied Kyle with 4 individual immunity wins"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 8
+              }
+            ]
+          },
+          "627": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 14,
+            "episodeId": 90,
+            "eventId": 627,
+            "eventName": "fireWin",
+            "label": "",
+            "notes": [
+              "One of the biggest comebacks in fire making ever!"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 10
+              }
+            ]
+          },
+          "628": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 14,
+            "episodeId": 90,
+            "eventId": 628,
+            "eventName": "finalists",
+            "label": "",
+            "notes": [],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 8
+              },
+              {
+                "type": "Castaway",
+                "id": 14
+              },
+              {
+                "type": "Castaway",
+                "id": 10
+              }
+            ]
+          },
+          "629": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 14,
+            "episodeId": 90,
+            "eventId": 629,
+            "eventName": "noVoteExit",
+            "label": "",
+            "notes": [
+              "Lost in fire"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 16
+              }
+            ]
+          },
+          "630": {
+            "eventSource": "Base",
+            "eventType": "Direct",
+            "episodeNumber": 14,
+            "episodeId": 90,
+            "eventId": 630,
+            "eventName": "soleSurvivor",
+            "label": "",
+            "notes": [
+              "7-1"
+            ],
+            "references": [
+              {
+                "type": "Castaway",
+                "id": 8
+              }
+            ]
+          }
+        }
+      },
+      "episodes": [
+        {
+          "seasonId": 8,
+          "episodeId": 42,
+          "episodeNumber": 1,
+          "title": "One Glorious and Perfect Episode",
+          "airDate": "2024-09-18T20:00:00.000Z",
+          "runtime": 120,
+          "airStatus": "Aired",
+          "isMerge": false,
+          "isFinale": false
+        },
+        {
+          "seasonId": 8,
+          "episodeId": 43,
+          "episodeNumber": 2,
+          "title": "Epic Boss Girl Move",
+          "airDate": "2024-09-25T20:00:00.000Z",
+          "runtime": 120,
+          "airStatus": "Aired",
+          "isMerge": false,
+          "isFinale": false
+        },
+        {
+          "seasonId": 8,
+          "episodeId": 72,
+          "episodeNumber": 3,
+          "title": "Belly of the Beast",
+          "airDate": "2024-10-02T20:00:00.000Z",
+          "runtime": 90,
+          "airStatus": "Aired",
+          "isMerge": false,
+          "isFinale": false
+        },
+        {
+          "seasonId": 8,
+          "episodeId": 74,
+          "episodeNumber": 4,
+          "title": "Is That Blood in Your Hair",
+          "airDate": "2024-10-09T20:00:00.000Z",
+          "runtime": 90,
+          "airStatus": "Aired",
+          "isMerge": false,
+          "isFinale": false
+        },
+        {
+          "seasonId": 8,
+          "episodeId": 76,
+          "episodeNumber": 5,
+          "title": "The Scales Be Tippin",
+          "airDate": "2024-10-16T20:00:00.000Z",
+          "runtime": 90,
+          "airStatus": "Aired",
+          "isMerge": false,
+          "isFinale": false
+        },
+        {
+          "seasonId": 8,
+          "episodeId": 79,
+          "episodeNumber": 6,
+          "title": "Feel the FOMO",
+          "airDate": "2024-10-23T20:00:00.000Z",
+          "runtime": 90,
+          "airStatus": "Aired",
+          "isMerge": false,
+          "isFinale": false
+        },
+        {
+          "seasonId": 8,
+          "episodeId": 80,
+          "episodeNumber": 7,
+          "title": "Our Pickle on Blast",
+          "airDate": "2024-10-30T20:00:00.000Z",
+          "runtime": 90,
+          "airStatus": "Aired",
+          "isMerge": true,
+          "isFinale": false
+        },
+        {
+          "seasonId": 8,
+          "episodeId": 81,
+          "episodeNumber": 8,
+          "title": "He's All That",
+          "airDate": "2024-11-06T21:00:00.000Z",
+          "runtime": 90,
+          "airStatus": "Aired",
+          "isMerge": false,
+          "isFinale": false
+        },
+        {
+          "seasonId": 8,
+          "episodeId": 83,
+          "episodeNumber": 9,
+          "title": "Nightmare Fuel",
+          "airDate": "2024-11-13T21:00:00.000Z",
+          "runtime": 90,
+          "airStatus": "Aired",
+          "isMerge": false,
+          "isFinale": false
+        },
+        {
+          "seasonId": 8,
+          "episodeId": 85,
+          "episodeNumber": 10,
+          "title": "Loyal to the Soil",
+          "airDate": "2024-11-20T21:00:00.000Z",
+          "runtime": 90,
+          "airStatus": "Aired",
+          "isMerge": false,
+          "isFinale": false
+        },
+        {
+          "seasonId": 8,
+          "episodeId": 84,
+          "episodeNumber": 11,
+          "title": "Flip the Win Switch",
+          "airDate": "2024-11-27T21:00:00.000Z",
+          "runtime": 90,
+          "airStatus": "Aired",
+          "isMerge": false,
+          "isFinale": false
+        },
+        {
+          "seasonId": 8,
+          "episodeId": 87,
+          "episodeNumber": 12,
+          "title": "Operation: Italy",
+          "airDate": "2024-12-04T21:00:00.000Z",
+          "runtime": 90,
+          "airStatus": "Aired",
+          "isMerge": false,
+          "isFinale": false
+        },
+        {
+          "seasonId": 8,
+          "episodeId": 88,
+          "episodeNumber": 13,
+          "title": "Bob and Weave",
+          "airDate": "2024-12-11T21:00:00.000Z",
+          "runtime": 120,
+          "airStatus": "Aired",
+          "isMerge": false,
+          "isFinale": false
+        },
+        {
+          "seasonId": 8,
+          "episodeId": 90,
+          "episodeNumber": 14,
+          "title": "The Last Stand",
+          "airDate": "2024-12-19T01:00:00.000Z",
+          "runtime": 60,
+          "airStatus": "Aired",
+          "isMerge": false,
+          "isFinale": true
+        }
+      ],
+      "tribesTimeline": {
+        "1": {
+          "1": [
+            12,
+            2,
+            6,
+            1,
+            10,
+            8
+          ],
+          "2": [
+            15,
+            4,
+            16,
+            9,
+            13,
+            3
+          ],
+          "3": [
+            17,
+            18,
+            5,
+            7,
+            11,
+            14
+          ]
+        },
+        "7": {
+          "29": [
+            8,
+            10,
+            1,
+            12,
+            13,
+            16,
+            15,
+            14,
+            11,
+            7,
+            5,
+            17
+          ]
+        }
+      },
+      "eliminations": [
+        [],
+        [
+          {
+            "castawayId": 2,
+            "eventId": 524
+          }
+        ],
+        [
+          {
+            "castawayId": 18,
+            "eventId": 532
+          }
+        ],
+        [
+          {
+            "castawayId": 4,
+            "eventId": 559
+          }
+        ],
+        [
+          {
+            "castawayId": 3,
+            "eventId": 566
+          }
+        ],
+        [
+          {
+            "castawayId": 6,
+            "eventId": 573
+          }
+        ],
+        [
+          {
+            "castawayId": 9,
+            "eventId": 579
+          }
+        ],
+        [
+          {
+            "castawayId": 17,
+            "eventId": 587
+          }
+        ],
+        [
+          {
+            "castawayId": 12,
+            "eventId": 592
+          }
+        ],
+        [
+          {
+            "castawayId": 13,
+            "eventId": 600
+          }
+        ],
+        [
+          {
+            "castawayId": 11,
+            "eventId": 605
+          }
+        ],
+        [
+          {
+            "castawayId": 7,
+            "eventId": 610
+          }
+        ],
+        [
+          {
+            "castawayId": 5,
+            "eventId": 616
+          }
+        ],
+        [
+          {
+            "castawayId": 1,
+            "eventId": 620
+          },
+          {
+            "castawayId": 15,
+            "eventId": 625
+          }
+        ],
+        [
+          {
+            "castawayId": 16,
+            "eventId": 629
+          }
+        ]
+      ],
+      "keyEpisodes": {
+        "previousEpisode": {
+          "seasonId": 8,
+          "episodeId": 90,
+          "episodeNumber": 14,
+          "title": "The Last Stand",
+          "airDate": "2024-12-19T01:00:00.000Z",
+          "runtime": 60,
+          "airStatus": "Aired",
+          "isMerge": false,
+          "isFinale": true
+        },
+        "nextEpisode": null,
+        "mergeEpisode": {
+          "seasonId": 8,
+          "episodeId": 80,
+          "episodeNumber": 7,
+          "title": "Our Pickle on Blast",
+          "airDate": "2024-10-30T20:00:00.000Z",
+          "runtime": 90,
+          "airStatus": "Aired",
+          "isMerge": true,
+          "isFinale": false
+        }
+      }
+    }
+  ]
+}
