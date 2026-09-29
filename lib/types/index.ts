@@ -7,3 +7,4 @@ export type * from "./segment.ts";
 export type * from "./prompt.ts";
 export type * from "./jev.ts";
 export type * from "./derive.ts";
+export type * from "./season.ts";
