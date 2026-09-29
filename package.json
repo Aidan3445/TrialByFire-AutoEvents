@@ -9,6 +9,7 @@
     "replay": "node lib/replay.ts",
     "derive": "node lib/deriveReplay.ts",
     "cue-server": "node lib/cueServer.ts",
+    "eval": "node lib/eval.ts",
     "typecheck": "tsc"
   },
   "devDependencies": {

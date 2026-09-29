@@ -146,3 +146,6 @@ vite.config.ts.timestamp-*
 contexts/
 replay-*/
 cues/
+
+# Eval runs (large, regenerable)
+evals/
