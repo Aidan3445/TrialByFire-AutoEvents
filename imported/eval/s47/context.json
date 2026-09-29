@@ -1,6 +1,6 @@
 {
   "host": "Jeff Probst",
-  "contestants": [
+  "cast": [
     "Jon Lovett",
     "Terran Foster",
     "Aysha Welch",
@@ -26,7 +26,7 @@
     "Tuku",
     "Beka"
   ],
-  "episodes": [
+  "titles": [
     {
       "num": 1,
       "title": "One Glorious and Perfect Episode"
