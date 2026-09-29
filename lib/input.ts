@@ -9,6 +9,10 @@ import type { Cue, StoredCue } from "./types/index.ts";
 // Measured on s51e1 speech; only used to synthesise timing for .txt input
 const WORDS_PER_SECOND = 2.5;
 
+// Zero-width characters are invisible but not whitespace, so a line of only
+// them would otherwise survive as an empty-looking cue
+const clean = (s: string) => s.replace(/[\u200B-\u200D\u2060\uFEFF]/g, "").replace(/\s+/g, " ").trim();
+
 // Other capture tools name the fields differently
 type JsonlRecord = Partial<StoredCue> & {
   caption?: string;
@@ -29,11 +33,11 @@ function fromJsonl(lines: string[]): Cue[] {
     } catch {
       continue;
     }
-    const text = o.text ?? o.caption ?? o.content ?? "";
+    const text = clean(String(o.text ?? o.caption ?? o.content ?? ""));
     if (!text) continue;
     out.push({
       key: o.key ?? String(out.length),
-      text: String(text).replace(/\s+/g, " ").trim(),
+      text,
       start: Number(o.start ?? o.starttime ?? o.startTime ?? out.length),
       end: Number(o.end ?? o.endtime ?? o.endTime ?? out.length + 1),
       boundary: o.boundary ?? null,
@@ -47,7 +51,7 @@ function fromText(lines: string[]): Cue[] {
   const out: Cue[] = [];
   let t = 0;
   for (const line of lines) {
-    const text = line.replace(/\s+/g, " ").trim();
+    const text = clean(line);
     if (!text) continue;
     const dur = Math.max(1, text.split(" ").length / WORDS_PER_SECOND);
     out.push({

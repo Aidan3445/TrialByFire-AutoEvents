@@ -128,3 +128,33 @@ export function totals(scores: EpisodeScore[]): Row[] {
     }
   return [...out.values()].sort((a, b) => a.eventName.localeCompare(b.eventName));
 }
+
+/**
+ * Event level: was a card of this type drafted in the episode at all,
+ * whoever it names? Catching the trigger is what matters most; the admin
+ * fills in members. Extra cards of a type (duplicates, false triggers)
+ * count as false alarms.
+ */
+export function scoreTriggers(episode: number, truth: TruthEvent[], predicted: Predicted[], family: Family = strict): EpisodeScore {
+  const skip = new Set<string>([...NOT_SCANNED, ...UNSCORED]);
+  const t = count(truth.filter((e) => !skip.has(e.eventName)).map((e) => family(e.eventName)));
+  const scored = predicted.filter((e) => !skip.has(e.eventName));
+  const p = count(scored.map((e) => family(e.eventName)));
+  const rows: Row[] = [];
+  const misses: EpisodeScore["misses"] = [];
+  const falseAlarms: EpisodeScore["falseAlarms"] = [];
+  for (const eventName of [...new Set([...t.keys(), ...p.keys()])].sort()) {
+    const tc = t.get(eventName) ?? 0;
+    const pc = p.get(eventName) ?? 0;
+    const hits = Math.min(tc, pc);
+    rows.push({ eventName, truth: tc, predicted: pc, hits, misses: tc - hits, falseAlarms: pc - hits, assisted: 0, empty: 0 });
+    for (let i = hits; i < tc; i++) misses.push({ eventName, name: "", assisted: false });
+    if (pc > tc)
+      falseAlarms.push({
+        eventName,
+        name: `${pc - tc} extra`,
+        prompts: scored.filter((e) => family(e.eventName) === eventName).map((e) => e.prompt),
+      });
+  }
+  return { episode, rows, misses, falseAlarms };
+}
