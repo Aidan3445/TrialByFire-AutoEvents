@@ -23,26 +23,32 @@ type JsonlRecord = Partial<StoredCue> & {
   endTime?: number;
 };
 
+/** One JSONL line -> cue, or null if it is blank, malformed, or has no text. `seq` is its arrival order. */
+export function parseCueLine(line: string, seq: number): Cue | null {
+  if (!line.trim()) return null;
+  let o: JsonlRecord;
+  try {
+    o = JSON.parse(line);
+  } catch {
+    return null;
+  }
+  const text = clean(String(o.text ?? o.caption ?? o.content ?? ""));
+  if (!text) return null;
+  return {
+    key: o.key ?? String(seq),
+    text,
+    start: Number(o.start ?? o.starttime ?? o.startTime ?? seq),
+    end: Number(o.end ?? o.endtime ?? o.endTime ?? seq + 1),
+    boundary: o.boundary ?? null,
+    seq: o.seq ?? seq,
+  };
+}
+
 function fromJsonl(lines: string[]): Cue[] {
   const out: Cue[] = [];
   for (const line of lines) {
-    if (!line.trim()) continue;
-    let o: JsonlRecord;
-    try {
-      o = JSON.parse(line);
-    } catch {
-      continue;
-    }
-    const text = clean(String(o.text ?? o.caption ?? o.content ?? ""));
-    if (!text) continue;
-    out.push({
-      key: o.key ?? String(out.length),
-      text,
-      start: Number(o.start ?? o.starttime ?? o.startTime ?? out.length),
-      end: Number(o.end ?? o.endtime ?? o.endTime ?? out.length + 1),
-      boundary: o.boundary ?? null,
-      seq: o.seq ?? out.length,
-    });
+    const cue = parseCueLine(line, out.length);
+    if (cue) out.push(cue);
   }
   return out;
 }
