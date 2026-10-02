@@ -1,8 +1,9 @@
 /**
- * Live capture of Survivor captions, with Jev analysis and alerts.
+ * Live capture of Survivor captions, with Jev analysis. Draft events print to
+ * this terminal and are logged under live/<episode>-<timestamp>/.
  *
  *   node lib/cueServer.ts --out cues/s51e2.jsonl        (terminal 1)
- *   node lib/live.ts cues/s51e2.jsonl --notify          (terminal 2)
+ *   node lib/live.ts cues/s51e2.jsonl                   (terminal 2)
  *   node lib/live.ts cues/s51e2.jsonl --once            (scan a finished capture)
  */
 
@@ -18,7 +19,6 @@ import {
   statSync,
   writeFileSync,
 } from "fs";
-import { createServer } from "http";
 import { basename, dirname, join } from "path";
 import { fileURLToPath } from "url";
 import { parseArgs } from "util";
@@ -35,9 +35,8 @@ const USAGE = `usage: node lib/live.ts <cues.jsonl> [options]
   <cues.jsonl>     the file cueServer is writing (--out); it may not exist yet
   --context FILE   episode context (default: contexts/{file name}.json)
   --title "TEXT"   episode title for spokeEpTitle detection (overrides the context file)
-  --once           scan the file as it is now, then exit (no alerts endpoint)
-  --fresh          start a new log folder instead of resuming the last one
-  --port N         alerts endpoint for the extension (default: 8001)`;
+  --once           scan the file as it is now, then exit
+  --fresh          start a new log folder instead of resuming the last one`;
 
 // How long to keep segments open during interruptions 
 const GAP_KEEP_S = 30;
@@ -58,10 +57,8 @@ try {
     options: {
       context: { type: "string" },
       title: { type: "string" },
-      notify: { type: "boolean", default: false },
       once: { type: "boolean", default: false },
       fresh: { type: "boolean", default: false },
-      port: { type: "string", default: "8001" },
     },
   });
 } catch (e) {
@@ -96,7 +93,7 @@ const stamp = new Date().toISOString().replace(/[-:]/g, "").replace("T", "-").sl
 const RUN = join(LIVE, resuming ? previous! : `${EPISODE}-${stamp}`);
 mkdirSync(RUN, { recursive: true });
 // These are rebuilt from the cue file on every start
-for (const f of ["alerts.jsonl", "cancelled.jsonl", "trace.log"]) writeFileSync(join(RUN, f), "");
+for (const f of ["drafts.jsonl", "cancelled.jsonl", "trace.log"]) writeFileSync(join(RUN, f), "");
 
 const write = (path: string, data: unknown) => writeFileSync(path, JSON.stringify(data, null, 2) + "\n");
 const log = (file: string, data: unknown) => appendFileSync(join(RUN, file), JSON.stringify(data) + "\n");
@@ -108,8 +105,7 @@ function say(line: string) {
   appendFileSync(join(RUN, "trace.log"), out + "\n");
 }
 
-
-interface Alert {
+interface Draft {
   id: number;
   at: string;
   prompt: string;
@@ -124,12 +120,11 @@ interface Alert {
   saved: boolean;
 }
 
-const alerts: Alert[] = [];
-const RUN_ID = stamp;
+const drafts: Draft[] = [];
 
 function raise(prompt: string, seg: Segment, e: DraftEvent, saved: boolean) {
-  const alert: Alert = {
-    id: alerts.length + 1,
+  const draft: Draft = {
+    id: drafts.length + 1,
     at: new Date().toISOString(),
     prompt,
     segment: seg.def.id,
@@ -142,18 +137,17 @@ function raise(prompt: string, seg: Segment, e: DraftEvent, saved: boolean) {
     notes: e.notes,
     saved,
   };
-  alerts.push(alert);
-  log("alerts.jsonl", alert);
-  const who = alert.references.join(", ") || "?";
+  drafts.push(draft);
+  log("drafts.jsonl", draft);
+  const who = draft.references.join(", ") || "?";
   say(
     `EVENT   ${e.eventName.padEnd(12)} ${(e.label ?? "").padEnd(28)} ${who}` +
-    (alert.confidence != null ? `  (${alert.confidence})` : "") +
-    (alert.asks.length ? `  asks: ${alert.asks.join(", ")}` : "") +
+    (draft.confidence != null ? `  (${draft.confidence})` : "") +
+    (draft.asks.length ? `  asks: ${draft.asks.join(", ")}` : "") +
     `  [${prompt}${saved ? ", saved" : ""}]`
   );
   for (const n of e.notes) say(`        ${n}`);
 }
-
 
 function onTrace(e: ScanEvent) {
   if (e.type === "open") {
@@ -180,7 +174,6 @@ function onTrace(e: ScanEvent) {
     log("cancelled.jsonl", { segment: e.def.id, startTime: e.startTime, start: e.start, reason: e.reason });
   }
 }
-
 
 let n = 0;
 let cues = 0;
@@ -302,12 +295,12 @@ async function wrapUp() {
     episode: EPISODE,
     cues,
     prompts: n,
-    alerts: alerts.length,
+    drafts: drafts.length,
     gaps,
     stats: pipeline.stats,
     usage: jev.usage,
   });
-  say(`${cues} cues, ${n} segments, ${alerts.length} events, ${gaps.length} capture gaps -> ${RUN}`);
+  say(`${cues} cues, ${n} segments, ${drafts.length} events, ${gaps.length} capture gaps -> ${RUN}`);
 }
 
 process.on("SIGINT", async () => {
@@ -334,34 +327,5 @@ if (opts.once) {
   process.exit(0);
 }
 
-const server = createServer((req, res) => {
-  const url = new URL(req.url ?? "/", "http://127.0.0.1");
-  const headers = {
-    "Content-Type": "application/json",
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Headers": "Content-Type",
-    // Chrome asks before a public page (cbs.com) may call a local address
-    "Access-Control-Allow-Private-Network": "true",
-  };
-  if (req.method === "OPTIONS") {
-    res.writeHead(204, { ...headers, "Access-Control-Allow-Methods": "GET, OPTIONS" });
-    return res.end();
-  }
-  if (url.pathname === "/alerts") {
-    const since = Number(url.searchParams.get("since") ?? 0);
-    res.writeHead(200, headers);
-    return res.end(JSON.stringify({ run: RUN_ID, episode: EPISODE, alerts: alerts.filter((a) => a.id > since) }));
-  }
-  if (url.pathname === "/status") {
-    res.writeHead(200, headers);
-    return res.end(JSON.stringify({ run: RUN_ID, episode: EPISODE, cues, prompts: n, alerts: alerts.length, gaps, finished, usage: jev.usage }));
-  }
-  res.writeHead(404, headers);
-  res.end(JSON.stringify({ error: "not found" }));
-});
-
-const PORT = Number(opts.port);
-server.listen(PORT, "127.0.0.1", () =>
-  say(`watching ${CUE_FILE}${existsSync(CUE_FILE) ? "" : " (not created yet)"}; alerts on http://127.0.0.1:${PORT}/alerts; logging to ${RUN}`)
-);
+say(`watching ${CUE_FILE}${existsSync(CUE_FILE) ? "" : " (not created yet)"}; logging to ${RUN}`);
 setInterval(poll, 1000);
