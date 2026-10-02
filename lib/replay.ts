@@ -32,6 +32,7 @@ const USAGE = `usage: node lib/replay.ts <cues.jsonl|transcript.txt> [options]
    or: npm run replay -- <cues.jsonl|transcript.txt> [options]
   --episode NAME   output file prefix (default: input file name)
   --context FILE   season context JSON (default: contexts/{episode}.json)
+  --title "TEXT"   episode title for spokeEpTitle detection (overrides the context file)
   --lead    N      seconds to include before start anchor (default: 20)
   --tail    N      seconds to include after end anchor (default: 20)
   --audit          print every anchor match by segment type, then exit`;
@@ -48,6 +49,7 @@ try {
     options: {
       episode: { type: "string" },
       context: { type: "string" },
+      title: { type: "string" },
       lead: { type: "string", default: "20" },
       tail: { type: "string", default: "20" },
       audit: { type: "boolean", default: false },
@@ -81,7 +83,8 @@ function loadContext(): Context {
   return withDefaults(JSON.parse(readFileSync(path, "utf8")));
 }
 
-const ctx = loadContext();
+const fileCtx = loadContext();
+const ctx = opts.title ? { ...fileCtx, title: opts.title } : fileCtx;
 const defs = segmentsFor(ctx);
 const raw = readCueFile(IN);
 const at = (t: number) => `[${t.toFixed(0)}s]`;
