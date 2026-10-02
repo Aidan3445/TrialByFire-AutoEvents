@@ -86,12 +86,12 @@ function prize(r: Reader, kind: "Individual" | "Tribe") {
   const unresolved: Unresolved[] =
     r.is("immunity_at_stake") === "unsure" || r.is("reward_at_stake") === "unsure"
       ? [
-          {
-            field: "label",
-            reason: `prize unsure (immunity ${imm}, reward ${rew})`,
-            options: [`${kind} Immunity and Reward`, `${kind} Immunity`, `${kind} Reward`].map((value) => ({ value })),
-          },
-        ]
+        {
+          field: "label",
+          reason: `prize unsure (immunity ${imm}, reward ${rew})`,
+          options: [`${kind} Immunity and Reward`, `${kind} Immunity`, `${kind} Reward`].map((value) => ({ value })),
+        },
+      ]
       : [];
   return { immunity, reward, label, certainty, unresolved };
 }
@@ -234,9 +234,12 @@ const challenge: SegmentDef<ChallengeInfo> = {
     "reward is yours",
     "you're all safe",
     "winner",
-    "that's it, it's over",
+    "it's over",
     "'s done it",
     "has done it",
+    "where somebody will be",
+    "where someone will be",
+    "person voted out of survivor",
   ], { exact: true }),
   requireNot: rx(RULES_TALK),
   end: phrases([
