@@ -65,6 +65,8 @@ export function createScanner(defs: SegmentDef[]): Scanner {
     const later = s.open.filter((o) => o.startIdx > c.startIdx);
     for (const o of later) remove(s, o);
     c.mergedFrom += later.length;
+    if (c.require)
+      events.push({ type: "confirm", def: s.def, startTime: c.startTime, require: c.require, absorbed: later.length });
   }
 
   function close(s: DefState, c: Candidate, endIdx: number, closedBy: ClosedBy) {
@@ -130,6 +132,7 @@ export function createScanner(defs: SegmentDef[]): Scanner {
       if (!start) continue;
       const c: Candidate = { startIdx: j, startTime: cues[j].start, start, require: null, end: null, mergedFrom: 1 };
       s.open.push(c);
+      events.push({ type: "open", def, start, startTime: c.startTime });
       if (def.require) {
         c.require = hitAt(def.require, def.requireNot, def, j);
         if (c.require) absorbLater(s, c);
