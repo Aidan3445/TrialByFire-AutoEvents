@@ -1,5 +1,5 @@
 /**
- * Live extraction: raw caption cues in, Jev prompts out.
+ * Processes cues segments and jev responses into potential events
  *
  *   const pipeline = createPipeline({ defs, ctx, onSegment, onCancel });
  *   pipeline.push(cue)   // as each cue airs
@@ -30,6 +30,8 @@ export interface PipelineOptions {
   buffer?: BufferOptions;
   onSegment(segment: Segment, prompt: Prompt): void;
   onCancel?(event: CancelEvent): void;
+  /** Every scanner event as it happens: opened, confirmed, closed (before the tail wait), cancelled. */
+  onTrace?(event: ScanEvent): void;
 }
 
 export interface Pipeline {
@@ -43,7 +45,8 @@ export function createPipeline({
   ctx,
   buffer = { lead: 20, tail: 20 },
   onSegment,
-  onCancel = () => {},
+  onCancel = () => { },
+  onTrace = () => { },
 }: PipelineOptions): Pipeline {
   const cleaner = createCleaner();
   const scanner = createScanner(defs);
@@ -52,8 +55,9 @@ export function createPipeline({
 
   function handle(events: ScanEvent[]) {
     for (const e of events) {
+      onTrace(e);
       if (e.type === "segment") pending.push(e.segment);
-      else onCancel(e);
+      else if (e.type === "cancel") onCancel(e);
     }
   }
 
