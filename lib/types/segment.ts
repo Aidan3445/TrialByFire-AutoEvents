@@ -5,8 +5,8 @@ import type { QSet, Labels, Template } from "./question.ts";
 import type { Outcome, Reader } from "./derive.ts";
 
 /**
- * One detectable scene type: its anchors, its question set, and how the
- * answers map to app labels.
+ * A segment is a part of the episode that may contain an event
+ * Each segment has start and end triggers and may have a require trigger that confirms the segment.
  *
  * Info is whatever the question builder needs from the segment text itself
  * (the challenge's one-off team colours); most segments need nothing.
@@ -76,4 +76,21 @@ export interface CancelEvent {
   reason: string;
 }
 
-export type ScanEvent = { type: "segment"; segment: Segment } | CancelEvent;
+/** A start trigger opened a candidate. */
+export interface OpenEvent {
+  type: "open";
+  def: SegmentDef;
+  start: Hit;
+  startTime: number;
+}
+
+/** A require hit confirmed a candidate; any opened inside its window were folded in. */
+export interface ConfirmEvent {
+  type: "confirm";
+  def: SegmentDef;
+  startTime: number;
+  require: Hit;
+  absorbed: number;
+}
+
+export type ScanEvent = { type: "segment"; segment: Segment } | CancelEvent | OpenEvent | ConfirmEvent;
